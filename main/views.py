@@ -35,12 +35,15 @@ class IndexView(generic.TemplateView):
 class ContactView(generic.FormView):
 	template_name = "main/contact.html"
 	form_class = ContactForm
-	success_url = "/"
+	success_url = "/contact/"
 	
 	def form_valid(self, form):
 		form.save()
 		messages.success(self.request, 'Thank you. We will be in touch soon.')
 		return super().form_valid(form)
+	def form_invalid(self, form):
+		messages.error(self.request, 'There was an error in your submission. Please try again.')
+		return super().form_invalid(form)
 
 
 class PortfolioView(generic.ListView):

@@ -17,8 +17,9 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 @admin.register(ContactProfile)
 class ContactAdmin(admin.ModelAdmin):
-	list_display = ('id', 'timestamp', 'name',)
-
+    list_display = ('id', 'timestamp', 'name',)
+    search_fields = ('name', 'email',)
+    list_filter = ('timestamp',)
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = ('id','name','is_active')
