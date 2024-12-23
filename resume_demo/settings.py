@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%grp+ic&utcxk@wxawgc$nlg&!%=ua-$45!k20bi#dz$o=f8zy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = [".vercel.app", "127.0.0.1"]
 
 
 # Application definition
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'resume_demo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [''],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,14 +74,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'resume_demo.wsgi.application'
 
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3', # Use a writable location for deployment (e.g., PostgreSQL or MySQL for production).
     }
 }
 
@@ -120,20 +119,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static'),
-    os.path.join(BASE_DIR,'media')
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
 ]
 
-STATIC_URL = 'static/'
-STATIC_ROOT=BASE_DIR/'staticfiles'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=BASE_DIR/'mediafiles'
+# Media files (user uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
+
+
+# CKEditor configuration
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
