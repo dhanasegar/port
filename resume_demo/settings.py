@@ -13,12 +13,11 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%grp+ic&utcxk@wxawgc$nlg&!%=ua-$45!k20bi#dz$o=f8zy'
-
+SECRET_KEY =  os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =os.environ.get("DEBUG","False").lower()=="true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 # Application definition
 INSTALLED_APPS = [
@@ -64,8 +63,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'resume_demo.wsgi.application'
 
 # Database configuration
+database_url=os.environ.get("DATABASES_URL")
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://resume_demo_user:qP6mhSIO2FGD1mWVNDuL2Y5kmVPBt00m@dpg-ctmp3ejv2p9s73fdoq2g-a.oregon-postgres.render.com/resume_demo')# Fetches the DB URL from environment variables
+    'default': dj_database_url.parse(database_url )# Fetches the DB URL from environment variables
 }
 
 # Password validation
