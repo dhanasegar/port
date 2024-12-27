@@ -1,12 +1,9 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-
-{% block title %}Projects{% endblock %}
+{% block title %}Portfolio Project{% endblock %}
 {% block decription %}Blog Description{% endblock %}
 {% block keywords %}Blog keywords{% endblock %}
-
-
 
 {% block extend_header %}{% endblock %}
 
@@ -16,10 +13,10 @@
 <section>
   <div class="innerPageBannerCol">
     <div class="container">
-      <div class="row g-4 g-md-3  align-items-center">
+      <div class="row g-4 g-md-3 align-items-center">
         <div class="col-md-6">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-md-3">See my recent Projects below</h1>
+            <h1 class="xlTitle pb-md-3">See my recent projects below</h1>
           </div>
         </div>
       </div>
@@ -35,18 +32,20 @@
           {% for obj in object_list %}
           <div class="col-md-6 pColMain">
             <div class="pCol">
-              <a href="{% url 'main:blog' slug=obj.slug %}" >
-              <img src="{{obj.image.url}}" alt="image url" class="pImg">
+              <a href="{% url 'main:blog' slug=obj.slug %}">
+                <!-- Inline SVG or use external SVG -->
+                <svg class="pImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="40" fill="lightblue" />
+                  <!-- You can replace this circle with your SVG code -->
+                </svg>
               </a>
             </div>
           </div>
           {% endfor %}
-
         </div>
       </div>
     </div>
   </div>
 </section>
 
-{%endblock%} 
-    
+{% endblock %}
