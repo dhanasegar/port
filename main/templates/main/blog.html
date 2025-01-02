@@ -34,9 +34,9 @@
             <div class="pCol">
               <a href="{% url 'main:blog' slug=obj.slug %}">
            
-                <svg class="pImg" xmlns="https://lasimagenesdegoku.com/wp-content/uploads/2018/02/831314.png" viewBox="0 0 100 100">
+                {% comment %} <svg class="pImg" xmlns="https://lasimagenesdegoku.com/wp-content/uploads/2018/02/831314.png" viewBox="0 0 100 100">
                   <circle cx="50" cy="50" r="40" fill="lightblue" />
-                </svg>
+                </svg> {% endcomment %}
                 <svg class="projectCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                   <!-- Background Circle with Gradient -->
                   <defs>
@@ -52,7 +52,8 @@
                   
                   <!-- Project Title Text -->
                   <text x="50" y="25" font-size="12" text-anchor="middle" fill="white" font-family="Arial, sans-serif">
-                      Project Title
+                          <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</a></h4>
+                        
                   </text>
                   
                   <!-- Additional Design Elements -->
