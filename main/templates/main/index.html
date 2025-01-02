@@ -14,10 +14,10 @@
     <div class="container">
       <div class="row g-4 g-md-3 align-items-center">
         <div class="col-md-auto order-md-last">
-          <div class="bannerUserImg">
-            {% comment %} <img src="{{ me.userprofile.get_avatar }}" alt="{{ me.first_name|title }} {{ me.last_name|title }} avatar"> {% endcomment %}
+          {% comment %} <div class="bannerUserImg">
+      
             <img src="{{ me.user_profile.avatar }}" alt="{{ me.user_profile.user.first_name }}'s Avatar" width="150" height="150">
-          </div>
+          </div> {% endcomment %}
         </div>
         <div class="col-md">
           <div class="bannerContent">
