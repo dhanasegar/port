@@ -15,7 +15,8 @@
       <div class="row g-4 g-md-3 align-items-center">
         <div class="col-md-auto order-md-last">
           <div class="bannerUserImg">
-            <img src="{{ me.userprofile.get_avatar }}" alt="{{ me.first_name|title }} {{ me.last_name|title }} avatar">
+            {% comment %} <img src="{{ me.userprofile.get_avatar }}" alt="{{ me.first_name|title }} {{ me.last_name|title }} avatar"> {% endcomment %}
+            <img src="{{ user_profile.avatar }}" alt="{{ user_profile.user.first_name }}'s Avatar" width="150" height="150">
           </div>
         </div>
         <div class="col-md">
