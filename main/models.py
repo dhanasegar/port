@@ -123,6 +123,7 @@ class Blog(models.Model):
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
+    image_url = models.URLField(max_length=500, blank=True, null=True) 
     is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
