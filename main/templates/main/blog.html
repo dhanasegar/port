@@ -33,27 +33,11 @@
           <div class="col-md-6 pColMain">
             <div class="pCol">
               <a href="{% url 'main:blog' slug=obj.slug %}">
-                <div class="row g-3">
-                  {% for b in blogs %}
-                  {% if b.is_active %}
-                  <div class="col-lg-6">
-                    <div class="cardStyle1">
-                      <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</a></h4>
-                      <ul class="cardOptionCol">
-                        <li>{{ b.timestamp.date }}</li>
-                        <li>{{ b.author }}</li>
-                      </ul>
-                      <p>{{ b.description }}</p>
-                    </div>
-                  </div>
-                  {% endif %}
-                  {% endfor %}
-                </div>
            
                 {% comment %} <svg class="pImg" xmlns="https://lasimagenesdegoku.com/wp-content/uploads/2018/02/831314.png" viewBox="0 0 100 100">
                   <circle cx="50" cy="50" r="40" fill="lightblue" />
                 </svg> {% endcomment %}
-                {% comment %} <svg class="projectCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <svg class="projectCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                   <!-- Background Circle with Gradient -->
                   <defs>
                       <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -74,7 +58,7 @@
                   <!-- Additional Design Elements -->
                   <circle cx="50" cy="50" r="30" fill="lightblue" opacity="0.5" />
                   <polygon points="30,70 70,70 50,40" fill="yellow" opacity="0.7" />
-              </svg> {% endcomment %}
+              </svg>
               
               </a>
             </div>
