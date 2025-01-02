@@ -24,9 +24,9 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name_plural = 'User Profiles'
         verbose_name = 'User Profile'
-    # url = models.URLField(blank=True, null=True)
+    url = models.URLField(blank=True, null=True,upload_to="avatar")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar= models.URLField(blank=True, null=True, upload_to="avatar")
+    # avatar= models.URLField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
