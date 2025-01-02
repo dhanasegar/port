@@ -26,11 +26,15 @@ class UserProfile(models.Model):
         verbose_name = 'User Profile'
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
+    avatar_url = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
     cv = models.FileField(blank=True, null=True, upload_to="cv")
+    profile = me.userprofile
+    profile.avatar_url = 'https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png'
+    profile.save()
+
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
