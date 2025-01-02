@@ -11,7 +11,7 @@ class Skill(models.Model):
 
     name = models.CharField(max_length=100, blank=True, null=True)
     score = models.IntegerField(default=80, blank=True, null=True)
-    image_url = models.URLField(blank=True, null=True)  # Changed to URLField for image URL
+    # image_url = models.URLField(blank=True, null=True)  # Changed to URLField for image URL
     is_key_skill = models.BooleanField(default=False)
 
     def __str__(self):
@@ -24,7 +24,7 @@ class UserProfile(models.Model):
         verbose_name = 'User Profile'
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar_url = models.URLField(blank=True, null=True)  # Changed to URLField for avatar URL
+    # avatar_url = models.URLField(blank=True, null=True)  # Changed to URLField for avatar URL
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
@@ -74,7 +74,7 @@ class Media(models.Model):
     image_url = models.URLField(blank=True, null=True)  # Changed to URLField for image URL
     url = models.URLField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
-    is_image = models.BooleanField(default=True)
+    # is_image = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if self.url:
@@ -95,7 +95,7 @@ class Portfolio(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
-    image_url = models.URLField(max_length=500, blank=True, null=True)  # Changed to URLField for image URL
+    # image_url = models.URLField(max_length=500, blank=True, null=True)  # Changed to URLField for image URL
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
