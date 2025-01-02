@@ -121,3 +121,22 @@ p {
 .existing-class {
   /* Add your existing styles here */
 }
+
+.pCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-title {
+  font-size: 1.2em;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pImg {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
