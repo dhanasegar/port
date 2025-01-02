@@ -23,6 +23,14 @@ class IndexView(generic.TemplateView):
         context["blogs"] = Blog.objects.filter(is_active=True)
         context["portfolio"] = Portfolio.objects.filter(is_active=True)
         return context
+    
+
+
+def update_avatar(request):
+	user_profile = UserProfile.objects.get(user=request.user)
+	user_profile.avatar_url = 'https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png'
+	user_profile.save()
+	return render(request, 'profile.html', {'profile': user_profile})
 
 
 class ContactView(generic.FormView):
@@ -66,3 +74,4 @@ class BlogView(generic.ListView):
 class BlogDetailView(generic.DetailView):
     model = Blog
     template_name = "main/blog-detail.html"
+    
