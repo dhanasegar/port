@@ -26,13 +26,11 @@ class UserProfile(models.Model):
         verbose_name = 'User Profile'
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar_url = models.URLField(blank=True, null=True)
+    # avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
     cv = models.FileField(blank=True, null=True, upload_to="cv")
-   
-
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
@@ -100,7 +98,7 @@ class Portfolio(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
-    # image_url = models.ImageField(max_length=500, upload_to="portfolio")
+    # image = models.ImageField(blank=True, null=True, upload_to="portfolio")
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
