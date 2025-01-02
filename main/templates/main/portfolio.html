@@ -33,8 +33,40 @@
           <div class="col-md-6 pColMain">
             <div class="pCol">
               <a href="{% url 'main:portfolio' slug=obj.slug %}" >
-                <svg class="pImg" xmlns="https://lasimagenesdegoku.com/wp-content/uploads/2018/02/831314.png" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="40" fill="lightblue" />
+                <svg class="academicCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                  <!-- Background with Gradient -->
+                  <defs>
+                      <linearGradient id="gradBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" style="stop-color:rgb(34,193,195);stop-opacity:1" />
+                          <stop offset="100%" style="stop-color:rgb(253,187,45);stop-opacity:1" />
+                      </linearGradient>
+                  </defs>
+                  <rect width="200" height="200" fill="url(#gradBackground)" />
+                  
+                  <!-- Graduation Cap -->
+                  <polygon points="60,50 140,50 100,30" fill="black" />
+                  <rect x="80" y="50" width="40" height="10" fill="black" />
+                  <line x1="100" y1="50" x2="100" y2="90" stroke="black" stroke-width="2" />
+                  
+                  <!-- Book Symbol -->
+                  <rect x="40" y="110" width="120" height="60" fill="white" stroke="black" stroke-width="2" />
+                  <line x1="40" y1="140" x2="160" y2="140" stroke="black" stroke-width="2" />
+                  <line x1="40" y1="170" x2="160" y2="170" stroke="black" stroke-width="2" />
+                  
+                  <!-- Diploma Scroll -->
+                  <rect x="90" y="160" width="20" height="10" fill="white" stroke="black" stroke-width="2" />
+                  <circle cx="90" cy="165" r="4" fill="black" />
+                  <circle cx="110" cy="165" r="4" fill="black" />
+                  
+                  <!-- Title Text -->
+                  <text x="100" y="30" font-size="14" text-anchor="middle" fill="white" font-family="Arial, sans-serif">
+                      Academic Qualification
+                  </text>
+                  <text x="100" y="180" font-size="12" text-anchor="middle" fill="white" font-family="Arial, sans-serif">
+                      Recognizing Excellence
+                  </text>
+              </svg>
+              
               </a>
             </div>
           </div>
