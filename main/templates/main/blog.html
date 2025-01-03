@@ -52,7 +52,7 @@
 
                   <!-- Project Title -->
                   <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">
-                    {{ obj.title }}
+                  <h4>  <a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</a></h4>
                   </text>
                   <text x="50%" y="75%" font-family="Arial, sans-serif" font-size="5" fill="white" text-anchor="middle">
                     {{ obj.description }}
