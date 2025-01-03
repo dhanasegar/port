@@ -117,22 +117,15 @@ p {
   background-color: #0056b3;
 }
 
-/* Portfolio Item Container */
-.pColMain {
-  text-align: center; /* Center text and SVG */
+/* Ensure existing functions are not affected */
+.existing-class {
+  /* Add your existing styles here */
 }
 
 .pCol {
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.pCol:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .portfolio-title {
@@ -147,6 +140,9 @@ p {
   height: 100px;
   cursor: pointer;
 }
+
+
+
 
 /* Animated Background Layer */
 .animatedBackground {
@@ -166,6 +162,9 @@ p {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+
+
 
 /* Floating Shapes */
 .floatingShapes {
@@ -213,11 +212,14 @@ p {
   animation-duration: 20s;
 }
 
+/* Floating Animation */
 @keyframes floatAnimation {
   0% { transform: translateY(0px); opacity: 1; }
   50% { transform: translateY(-20px); opacity: 0.8; }
   100% { transform: translateY(0px); opacity: 1; }
 }
+
+
 
 /* Adjusted SVG Styles */
 .dynamic-svg {
@@ -232,18 +234,34 @@ p {
   transform: scale(1.1); /* Zoom effect on hover */
 }
 
-/* General styles for the profile SVG */
-.academic-container {
-  width: 80px; /* Default size */
-  height: 80px; /* Default size */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible; /* Ensures nothing gets clipped */
+/* Portfolio Item Container */
+.pColMain {
+  text-align: center; /* Center text and SVG */
+}
+
+.pCol {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.pCol:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Project Title and Description */
+.dynamic-svg + text {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  display: block;
 }
 
 .academic-svg {
-  width: 100%; /* Makes the SVG scale to container width */
+  width: 100%; /* Ensures it resizes based on the container width */
   max-width: 120px; /* Limit size for desktop */
   height: auto; /* Keeps aspect ratio intact */
   display: block;
@@ -256,13 +274,25 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Elevated effect on hover */
 }
 
+/* General styles for the profile SVG */
+
+
+/* Ensure the container is properly sized and visible */
+.academic-container {
+  width: 80px; /* Set a default size */
+  height: 80px; /* Set a default size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* Ensures nothing gets clipped */
+}
+
 /* Media Queries to adjust on larger screens */
 @media (min-width: 768px) {
   .academic-container {
     width: 100px;  /* Increase size for desktop */
     height: 100px; /* Increase size for desktop */
   }
-
   .academic-svg {
     max-width: 100%;  /* Make sure it scales up without issues */
     height: auto; /* Maintain aspect ratio */
