@@ -33,7 +33,7 @@
             <div class="pCol">
               <a href="{% url 'main:blog' slug=obj.slug %}">
                 <!-- Dynamic SVG with unique design for each project -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" class="dynamic-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" class="dynamic-svg">
                   <!-- Gradient Background -->
                   <defs>
                     <linearGradient id="gradient-{{ forloop.counter }}" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -54,9 +54,9 @@
                   <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="6" fill="white" text-anchor="middle">
                     {{ obj.name }}
                   </text>
-                  <text x="50%" y="75%" font-family="Arial, sans-serif" font-size="4" fill="white" text-anchor="middle">
+                  {% comment %} <text x="50%" y="75%" font-family="Arial, sans-serif" font-size="4" fill="white" text-anchor="middle">
                     {{ obj.description }}
-                  </text>
+                  </text> {% endcomment %}
                 </svg>
               </a>
             </div>
