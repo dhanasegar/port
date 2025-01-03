@@ -297,6 +297,16 @@ p {
 }
 
 /* Media Queries to adjust on larger screens */
+@media (min-width: 1700px) {
+  .academic-container {
+    width: 50px;  /* Increase size for desktop */
+    height: 50px; /* Increase size for desktop */
+  }
+  .academic-svg {
+    max-width: 100%;  /* Make sure it scales up without issues */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
 
 
 
