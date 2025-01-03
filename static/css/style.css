@@ -275,9 +275,11 @@ p {
 }
 
 /* General styles for the profile SVG */
+/* General styles for the profile SVG */
 .profile-svg {
-  width: 100px;
-  height: 100px;
+  width: 100%;         /* Ensures the SVG takes up the full width of its parent container */
+  max-width: 100px;    /* Limits the width to 100px (adjust as needed) */
+  height: auto;        /* Maintains aspect ratio */
   display: block;
   margin: 0 auto;
   cursor: pointer;
@@ -320,4 +322,12 @@ p {
 
 .profile-svg:hover .shoulders {
   transform: scale(1.1); /* Shoulders expand slightly */
+}
+
+/* Media Query to adjust the SVG size on larger screens */
+@media (min-width: 768px) {
+  .profile-svg {
+    width: 80px; /* Set appropriate size on desktops/tablets */
+    max-width: 100px;
+  }
 }
