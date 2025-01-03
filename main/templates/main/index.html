@@ -14,10 +14,12 @@
     <div class="container">
       <div class="row g-4 g-md-3 align-items-center">
         <div class="col-md-auto order-md-last">
-          {% comment %} <div class="bannerUserImg">
-      
-            <img src="{{ me.user_profile.avatar }}" alt="{{ me.user_profile.user.first_name }}'s Avatar" width="150" height="150">
-          </div> {% endcomment %}
+          <div class="bannerUserImg">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+              <img src="{% static 'images/image.svg' %}" alt='avatar'>
+            </svg>
+            {% comment %} <img src="{{ me.user_profile.avatar }}" alt="{{ me.user_profile.user.first_name }}'s Avatar" width="150" height="150"> {% endcomment %}
+          </div>
         </div>
         <div class="col-md">
           <div class="bannerContent">
