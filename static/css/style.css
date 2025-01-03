@@ -299,8 +299,8 @@ p {
 /* Media Queries to adjust on larger screens */
 @media (min-width: 768px) {
   .academic-container {
-    width: 100px;  /* Increase size for desktop */
-    height: 100px; /* Increase size for desktop */
+    width: 50px;  /* Increase size for desktop */
+    height: 50px; /* Increase size for desktop */
   }
   .academic-svg {
     max-width: 100%;  /* Make sure it scales up without issues */
