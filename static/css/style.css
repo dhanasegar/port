@@ -47,7 +47,7 @@ h1, p {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 8px;
-  background-image: url('images/linkedin.svg'); /* Set your image here */
+  background-image: url('images/profile.svg'); /* Set your image here */
 }
 
 .bannerUserImg img {
