@@ -8,7 +8,6 @@
 {% block extend_header %}{% endblock %}
 
 {% block extend_footer %}{% endblock %}
-
 {% block content %}
 <section>
   <div class="innerPageBannerCol">
@@ -33,8 +32,8 @@
           <div class="col-md-6 pColMain">
             <div class="pCol">
               <a href="{% url 'main:blog' slug=obj.slug %}">
-                <!-- Dynamic SVG with Reduced Size and Updated Design -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" class="dynamic-svg">
+                <!-- Dynamic SVG with unique design for each project -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" class="dynamic-svg">
                   <!-- Gradient Background -->
                   <defs>
                     <linearGradient id="gradient-{{ forloop.counter }}" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -42,19 +41,20 @@
                       <stop offset="100%" style="stop-color: {{ obj.color_end }}; stop-opacity: 1" />
                     </linearGradient>
                   </defs>
-                  
-                  <rect width="100" height="100" fill="url(#gradient-{{ forloop.counter }})" rx="10" ry="10" />
-                  
+
+                  <!-- Background Rectangle -->
+                  <rect width="100%" height="100%" fill="url(#gradient-{{ forloop.counter }})" rx="15" ry="15" />
+
                   <!-- Abstract Shapes -->
                   <circle cx="30" cy="30" r="15" fill="rgb(255, 230, 7)" />
                   <polygon points="50,50 75,20 90,60" fill="rgb(238, 25, 238)" />
                   <path d="M 10,90 Q 50,10 90,90" fill="none" stroke="white" stroke-width="1" />
 
-                  <!-- Project Title -->
-                  <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">
-                  <h4>{{ b.name }}</h4>
+                  <!-- Dynamic Text -->
+                  <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="6" fill="white" text-anchor="middle">
+                    {{ obj.name }}
                   </text>
-                  <text x="50%" y="75%" font-family="Arial, sans-serif" font-size="5" fill="white" text-anchor="middle">
+                  <text x="50%" y="75%" font-family="Arial, sans-serif" font-size="4" fill="white" text-anchor="middle">
                     {{ obj.description }}
                   </text>
                 </svg>
@@ -67,7 +67,4 @@
     </div>
   </div>
 </section>
-
-
-
 {% endblock %}

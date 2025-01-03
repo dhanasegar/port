@@ -33,6 +33,7 @@
           <div class="col-md-6 pColMain">
             <div class="pCol">
               <a href="{% url 'main:portfolio' slug=obj.slug %}" >
+                
                 <svg class="academicCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
                   <!-- Background with Gradient -->
                   <defs>
@@ -60,7 +61,7 @@
                   
                   <!-- Title Text -->
                   <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">
-                    <h4>{{ b.name }}</h4>
+                    {{ p.name }}
                     </text>
               </svg>
               
