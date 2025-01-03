@@ -33,12 +33,12 @@
           <div class="col-md-6 pColMain">
             <div class="pCol">
               <a href="{% url 'main:portfolio' slug=obj.slug %}" >
-                <svg class="academicCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                <svg class="academicCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
                   <!-- Background with Gradient -->
                   <defs>
                       <linearGradient id="gradBackground" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" style="stop-color:rgb(34,193,195);stop-opacity:1" />
-                          <stop offset="100%" style="stop-color:rgb(253,187,45);stop-opacity:1" />
+                          <stop offset="0%" style="stop-color:rgb(36, 251, 255);stop-opacity:1" />
+                          <stop offset="100%" style="stop-color:rgb(200, 19, 255);stop-opacity:1" />
                       </linearGradient>
                   </defs>
                   <rect width="200" height="200" fill="url(#gradBackground)" />
@@ -60,10 +60,7 @@
                   
                   <!-- Title Text -->
                   <text x="100" y="30" font-size="14" text-anchor="middle" fill="white" font-family="Arial, sans-serif">
-                      Academic Qualification
-                  </text>
-                  <text x="100" y="180" font-size="12" text-anchor="middle" fill="white" font-family="Arial, sans-serif">
-                      Recognizing Excellence
+                    <h4>{{ p.name }}</h4>
                   </text>
               </svg>
               
