@@ -260,3 +260,14 @@ p {
   display: block;
 }
 
+.academic-svg {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 20px auto;
+  transition: transform 0.3s ease;
+}
+
+.academic-svg:hover {
+  transform: scale(1.1);
+}
