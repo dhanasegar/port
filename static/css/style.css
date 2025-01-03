@@ -274,3 +274,50 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Elevated effect on hover */
 }
 
+/* General styles for the profile SVG */
+.profile-svg {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover and active state */
+.profile-svg:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Elevated effect on hover */
+}
+
+/* Active style when clicked */
+.profile-svg:active {
+  transform: scale(0.9); /* Shrinks slightly when clicked */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow on active click */
+}
+
+/* Animated background circle effect */
+.circle-bg {
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-svg:hover .circle-bg {
+  transform: rotate(360deg); /* Background circle rotates on hover */
+}
+
+/* Animated head and body when hovered */
+.head, .body, .shoulders {
+  transition: transform 0.3s ease;
+}
+
+.profile-svg:hover .head {
+  transform: translateY(-5px); /* Head moves slightly up on hover */
+}
+
+.profile-svg:hover .body {
+  transform: translateY(5px); /* Body moves slightly down on hover */
+}
+
+.profile-svg:hover .shoulders {
+  transform: scale(1.1); /* Shoulders expand slightly */
+}
