@@ -43,13 +43,18 @@ h1, p {
 }
 
 .bannerUserImg {
+
   width: 100%;
-  height: 300px;
+  max-width: 300px; /* Ensure it doesn't get too large */
+  height: 250px; /* Ensure height is set */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url('images/profile.svg'); /* Ensure the image path is correct */
   border-radius: 8px;
-  background-image: url('images/profile.svg');
+  margin: 0 auto; /* Center the image */
+  
+  
 }
 
 .bannerUserImg img {
