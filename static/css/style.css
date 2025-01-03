@@ -261,13 +261,14 @@ p {
 }
 
 .academic-svg {
-  width: 150px;
-  height: 150px;
+  width: 100px; /* Adjust size as needed */
+  height: 100px;
   display: block;
-  margin: 20px auto;
-  transition: transform 0.3s ease;
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .academic-svg:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Slight zoom on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Elevated effect */
 }
