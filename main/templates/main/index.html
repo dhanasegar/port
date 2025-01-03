@@ -14,60 +14,45 @@
     <div class="container">
       <div class="row g-4 g-md-3 align-items-center">
         <div class="col-md-auto order-md-last">
-          {% comment %} <div class="bannerUserImg"> {% endcomment %}
-            {% comment %} <svg height="150" width="400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Profile Image Section -->
+          <div class="profile-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="academic-svg" preserveAspectRatio="xMidYMid meet">
+              <!-- Background Gradient -->
               <defs>
-                <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                  <stop offset="0%" stop-color="red" />
-                  <stop offset="50%" stop-color="green" />
-                  <stop offset="100%" stop-color="blue" />
-                </radialGradient>
+                <linearGradient id="academicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color: #4CAF50; stop-opacity: 1" />
+                  <stop offset="100%" style="stop-color: #8BC34A; stop-opacity: 1" />
+                </linearGradient>
+                <pattern id="academicPattern" patternUnits="userSpaceOnUse" width="10" height="10">
+                  <circle cx="5" cy="5" r="2" fill="white" />
+                </pattern>
               </defs>
-              <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
-            </svg> {% endcomment %}
-            <div class="profile-container">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="academic-svg" preserveAspectRatio="xMidYMid meet">
-                <!-- Background Gradient -->
-                <defs>
-                  <linearGradient id="academicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color: #4CAF50; stop-opacity: 1" />
-                    <stop offset="100%" style="stop-color: #8BC34A; stop-opacity: 1" />
-                  </linearGradient>
-                  <pattern id="academicPattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                    <circle cx="5" cy="5" r="2" fill="white" />
-                  </pattern>
-                </defs>
-                
-                <!-- Outer Circle -->
-                <circle cx="50" cy="50" r="45" fill="url(#academicGradient)" />
-                
-                <!-- Pattern Overlay -->
-                <circle cx="50" cy="50" r="35" fill="url(#academicPattern)" />
-                
-                <!-- Inner Circle -->
-                <circle cx="50" cy="50" r="20" fill="rgba(255, 255, 255, 0.9)" />
-                
-                <!-- Icon (Graduation Cap) -->
-                <path 
-                  d="M 50 35 L 30 45 L 50 55 L 70 45 Z 
-                     M 45 50 L 45 60 L 55 60 L 55 50" 
-                  fill="none" stroke="#4CAF50" stroke-width="2" stroke-linejoin="round" />
-              </svg>
-            </div>
-            
-            
-            
-            {% comment %} <img src="{{ me.user_profile.avatar }}" alt="{{ me.user_profile.user.first_name }}'s Avatar" width="150" height="150"> {% endcomment %}
-          {% comment %} </div> {% endcomment %}
+
+              <!-- Outer Circle -->
+              <circle cx="50" cy="50" r="45" fill="url(#academicGradient)" />
+
+              <!-- Pattern Overlay -->
+              <circle cx="50" cy="50" r="35" fill="url(#academicPattern)" />
+
+              <!-- Inner Circle -->
+              <circle cx="50" cy="50" r="20" fill="rgba(255, 255, 255, 0.9)" />
+
+              <!-- Icon (Graduation Cap) -->
+              <path 
+                d="M 50 35 L 30 45 L 50 55 L 70 45 Z 
+                   M 45 50 L 45 60 L 55 60 L 55 50" 
+                fill="none" stroke="#4CAF50" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </div>
         </div>
         <div class="col-md">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title }}, <br> a {{ me.userprofile.title }}</h1>
-            <p>{{me.userprofile.bio }}</p>
+            <h1 class="xlTitle pb-3">Hi, I’m {{ me.first_name|title }}, <br> a {{ me.userprofile.title }}</h1>
+            <p>{{ me.userprofile.bio }}</p>
             <div class="bannerBtnCol">
               <div class="row">
                 <div class="col-auto">
-                  <a download href="{{me.userprofile.cv.url }}" class="btn btnPrimary">Download Resume</a>
+                  <a download href="{{ me.userprofile.cv.url }}" class="btn btnPrimary">Download Resume</a>
                 </div>
                 <div class="col-auto">
                   <a href="{% url 'main:contact' %}" class="btn btnOutline">Contact</a>
@@ -150,7 +135,6 @@
 </section>
 
 <section>
-  
   <div class="sectionSpace">
     <div class="container">
       <div class="portfolioCol">
@@ -170,36 +154,22 @@
               <div class="portfolioImgCol">
                 <a href="{% url 'main:portfolio' slug=p.slug %}">
                   <div class="academic-container">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="academic-svg" preserveAspectRatio="xMidYMid meet">
-                    <!-- Background Gradient -->
-                    <defs>
-                      <linearGradient id="academicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color: #4CAF50; stop-opacity: 1" />
-                        <stop offset="100%" style="stop-color: #8BC34A; stop-opacity: 1" />
-                      </linearGradient>
-                      <pattern id="academicPattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                        <circle cx="5" cy="5" r="2" fill="white" />
-                      </pattern>
-                    </defs>
-                    
-                    <!-- Outer Circle -->
-                    <circle cx="50" cy="50" r="45" fill="url(#academicGradient)" />
-                    
-                    <!-- Pattern Overlay -->
-                    <circle cx="50" cy="50" r="35" fill="url(#academicPattern)" />
-                    
-                    <!-- Inner Circle -->
-                    <circle cx="50" cy="50" r="20" fill="rgba(255, 255, 255, 0.9)" />
-                    
-                    <!-- Icon (Graduation Cap) -->
-                    <path 
-                      d="M 50 35 L 30 45 L 50 55 L 70 45 Z 
-                         M 45 50 L 45 60 L 55 60 L 55 50" 
-                      fill="none" stroke="#4CAF50" stroke-width="2" stroke-linejoin="round" />
-                  </svg>
-                  
-                  
-                  
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="academic-svg" preserveAspectRatio="xMidYMid meet">
+                      <defs>
+                        <linearGradient id="academicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" style="stop-color: #4CAF50; stop-opacity: 1" />
+                          <stop offset="100%" style="stop-color: #8BC34A; stop-opacity: 1" />
+                        </linearGradient>
+                        <pattern id="academicPattern" patternUnits="userSpaceOnUse" width="10" height="10">
+                          <circle cx="5" cy="5" r="2" fill="white" />
+                        </pattern>
+                      </defs>
+                      <circle cx="50" cy="50" r="45" fill="url(#academicGradient)" />
+                      <circle cx="50" cy="50" r="35" fill="url(#academicPattern)" />
+                      <circle cx="50" cy="50" r="20" fill="rgba(255, 255, 255, 0.9)" />
+                      <path d="M 50 35 L 30 45 L 50 55 L 70 45 Z M 45 50 L 45 60 L 55 60 L 55 50" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linejoin="round" />
+                    </svg>
+                  </div>
                 </a>
               </div>
             </div>
@@ -218,44 +188,40 @@
         {% endfor %}
       </div>
     </div>
-      <div class="testimonialCol">
-        <h4 class="smText regular d-block"> EMPLOYMENT</h4>
-        <div class="testimonialSlider">
-          <div class="swiper testimonialSwiper">
-            <div class="swiper-wrapper">
-              {% for t in testimonials %}
-              {% if t.is_active %}
-              <div class="swiper-slide">
-                <div class="testimonialCard">
-                  <div class="row align-items-center">
-                    <div class="col-sm-auto">
-                      
-                      <div class="tImgCol">
-                        {%if t.thumbnail%}
-                        <img src="{{t.thumbnail.url}}" alt="image">
-                        {%else %}
-                        <img src="path/to/default/image.jpg" alt ="Default image">
-                        {%endif%}
-                      </div>
+
+    <div class="testimonialCol">
+      <h4 class="smText regular d-block">EMPLOYMENT</h4>
+      <div class="testimonialSlider">
+        <div class="swiper testimonialSwiper">
+          <div class="swiper-wrapper">
+            {% for t in testimonials %}
+            {% if t.is_active %}
+            <div class="swiper-slide">
+              <div class="testimonialCard">
+                <div class="row align-items-center">
+                  <div class="col-sm-auto">
+                    <div class="tImgCol">
+                      {% if t.thumbnail %}
+                      <img src="{{ t.thumbnail.url }}" alt="image">
+                      {% else %}
+                      <img src="path/to/default/image.jpg" alt="Default image">
+                      {% endif %}
                     </div>
-                    <div class="col-sm">
-                      <div class="tContentCol">
-                        <h4 class="xsTitle bold">{{t.name}} - {{t.role}}</h4>
-                        <p>{{t.quote}}</p>
-                      </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="tContentCol">
+                      <h4 class="xsTitle bold">{{ t.name }} - {{ t.role }}</h4>
+                      <p>{{ t.quote }}</p>
                     </div>
                   </div>
                 </div>
               </div>
-              {% endif %}
-              {% endfor %}
-
             </div>
-            <div class="test-swiper-button-next swiper-button-next swiperBtnStyle"></div>
-            <div class="test-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
+            {% endif %}
+            {% endfor %}
           </div>
-
-
+          <div class="test-swiper-button-next swiper-button-next swiperBtnStyle"></div>
+          <div class="test-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
         </div>
       </div>
     </div>
