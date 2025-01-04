@@ -4,7 +4,6 @@ from django.template.defaultfilters import slugify
 from ckeditor.fields import RichTextField
 
 
-
 class Skill(models.Model):
     class Meta:
         verbose_name_plural = 'Skills'
@@ -12,71 +11,55 @@ class Skill(models.Model):
     
     name = models.CharField(max_length=100, blank=True, null=True)
     score = models.IntegerField(default=80, blank=True, null=True)
-    image = models.FileField(upload_to="skills",blank=True, null=True )
+    image = models.FileField(upload_to="skills", blank=True, null=True)
+    image_url = models.URLField(blank=True, null=True)  # Add image URL field
     is_key_skill = models.BooleanField(default=False)
-    
+
+    def get_image(self):
+        # Return image URL if available, otherwise return the uploaded file URL
+        if self.image_url:
+            return self.image_url
+        if self.image:
+            return self.image.url
+        return None
+
     def __str__(self):
-        
         return self.name
 
-class UserProfile(models.Model): 
 
+class UserProfile(models.Model): 
     class Meta:
         verbose_name_plural = 'User Profiles'
         verbose_name = 'User Profile'
-    # avatar = models.URLField(blank=True, null=True)
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # avatar= image = models.ImageField(blank=True, null=True, upload_to="avatar")
+    avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
+    avatar_url = models.URLField(blank=True, null=True)  # Add avatar URL field
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
     cv = models.FileField(blank=True, null=True, upload_to="cv")
 
+    def get_avatar(self):
+        # Return avatar URL if available, otherwise return the uploaded file URL
+        if self.avatar_url:
+            return self.avatar_url
+        if self.avatar:
+            return self.avatar.url
+        return None
+
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
 
 
-class ContactProfile(models.Model):
-    
-    class Meta:
-        verbose_name_plural = 'Contact Profiles'
-        verbose_name = 'Contact Profile'
-        ordering = ["timestamp"]
-    timestamp = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(verbose_name="Name",max_length=100)
-    email = models.EmailField(verbose_name="Email")
-    message = models.TextField(verbose_name="Message")
-
-    def __str__(self):
-        return f'{self.name}'
-
-
-
-class Testimonial(models.Model):
-
-    class Meta:
-        verbose_name_plural = 'Testimonials'
-        verbose_name = 'Testimonial'
-        ordering = ["name"]
-
-    thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
-    name = models.CharField(max_length=200, blank=True, null=True)
-    role = models.CharField(max_length=200, blank=True, null=True)
-    quote = models.CharField(max_length=500, blank=True, null=True)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Media(models.Model):
-
     class Meta:
         verbose_name_plural = 'Media Files'
         verbose_name = 'Media'
         ordering = ["name"]
-	
+
     image = models.ImageField(blank=True, null=True, upload_to="media")
+    image_url = models.URLField(blank=True, null=True)  # Add image URL field
     url = models.URLField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     is_image = models.BooleanField(default=True)
@@ -85,20 +68,31 @@ class Media(models.Model):
         if self.url:
             self.is_image = False
         super(Media, self).save(*args, **kwargs)
+
+    def get_image(self):
+        # Return image URL if available, otherwise return the uploaded file URL
+        if self.image_url:
+            return self.image_url
+        if self.image:
+            return self.image.url
+        return None
+
     def __str__(self):
         return self.name
 
-class Portfolio(models.Model):
 
+class Portfolio(models.Model):
     class Meta:
         verbose_name_plural = 'Portfolio Profiles'
         verbose_name = 'Portfolio'
         ordering = ["name"]
+
     date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
-    # image = models.ImageField(blank=True, null=True, upload_to="portfolio")
+    image = models.ImageField(blank=True, null=True, upload_to="portfolio")
+    image_url = models.URLField(blank=True, null=True)  # Add image URL field
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -106,6 +100,14 @@ class Portfolio(models.Model):
         if not self.id:
             self.slug = slugify(self.name)
         super(Portfolio, self).save(*args, **kwargs)
+
+    def get_image(self):
+        # Return image URL if available, otherwise return the uploaded file URL
+        if self.image_url:
+            return self.image_url
+        if self.image:
+            return self.image.url
+        return None
 
     def __str__(self):
         return self.name
@@ -115,7 +117,6 @@ class Portfolio(models.Model):
 
 
 class Blog(models.Model):
-
     class Meta:
         verbose_name_plural = 'Blog Profiles'
         verbose_name = 'Blog'
@@ -127,13 +128,22 @@ class Blog(models.Model):
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
-    # image = models.ImageField(blank=True, null=True, upload_to="blog")
+    image = models.ImageField(blank=True, null=True, upload_to="blog")
+    image_url = models.URLField(blank=True, null=True)  # Add image URL field
     is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.name)
         super(Blog, self).save(*args, **kwargs)
+
+    def get_image(self):
+        # Return image URL if available, otherwise return the uploaded file URL
+        if self.image_url:
+            return self.image_url
+        if self.image:
+            return self.image.url
+        return None
 
     def __str__(self):
         return self.name
@@ -142,18 +152,26 @@ class Blog(models.Model):
         return f"/blog/{self.slug}"
 
 
-class Certificate(models.Model):
-
+class Testimonial(models.Model):
     class Meta:
-        verbose_name_plural = 'Certificates'
-        verbose_name = 'Certificate'
+        verbose_name_plural = 'Testimonials'
+        verbose_name = 'Testimonial'
+        ordering = ["name"]
 
-    date = models.DateTimeField(blank=True, null=True)
-    name = models.CharField(max_length=50, blank=True, null=True)
-    title = models.CharField(max_length=200, blank=True, null=True)
-    description = models.CharField(max_length=500, blank=True, null=True)
+    thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
+    thumbnail_url = models.URLField(blank=True, null=True)  # Add thumbnail URL field
+    name = models.CharField(max_length=200, blank=True, null=True)
+    role = models.CharField(max_length=200, blank=True, null=True)
+    quote = models.CharField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)
+
+    def get_thumbnail(self):
+        # Return thumbnail URL if available, otherwise return the uploaded file URL
+        if self.thumbnail_url:
+            return self.thumbnail_url
+        if self.thumbnail:
+            return self.thumbnail.url
+        return None
 
     def __str__(self):
         return self.name
-
