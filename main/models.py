@@ -26,7 +26,7 @@ class UserProfile(models.Model):
         verbose_name = 'User Profile'
     # avatar = models.URLField(blank=True, null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar= image = models.ImageField(blank=True, null=True, upload_to="avatar")
+    # avatar= image = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
@@ -53,21 +53,20 @@ class ContactProfile(models.Model):
 
 
 class Testimonial(models.Model):
+
     class Meta:
         verbose_name_plural = 'Testimonials'
         verbose_name = 'Testimonial'
         ordering = ["name"]
 
+    thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
     name = models.CharField(max_length=200, blank=True, null=True)
     role = models.CharField(max_length=200, blank=True, null=True)
     quote = models.CharField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    thumbnail = models.ImageField(upload_to="testimonials", blank=True, null=True)
-    thumbnail_url = models.URLField(blank=True, null=True)  # For external image URL
 
     def __str__(self):
         return self.name
-
 
 
 class Media(models.Model):
@@ -90,17 +89,16 @@ class Media(models.Model):
         return self.name
 
 class Portfolio(models.Model):
+
     class Meta:
         verbose_name_plural = 'Portfolio Profiles'
         verbose_name = 'Portfolio'
         ordering = ["name"]
-
     date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
-    image = models.ImageField(upload_to="portfolio", blank=True, null=True)  # For uploaded images
-    image_url = models.URLField(blank=True, null=True)  # For external image URLs
+    # image = models.ImageField(blank=True, null=True, upload_to="portfolio")
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -129,7 +127,7 @@ class Blog(models.Model):
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
-    image = models.ImageField(blank=True, null=True, upload_to="blog")
+    # image = models.ImageField(blank=True, null=True, upload_to="blog")
     is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
