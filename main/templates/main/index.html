@@ -50,6 +50,33 @@
   <div class="sectionSpace pt-0">
     <div class="container">
       <div class="row">
+
+        <div class="col-md-auto">
+          <div class="keySkillCol">
+            <h4 class="smTitle pb-3">version</h4>
+            {% for sk in  me.userprofile.skills.all %}
+
+            {%if sk.is_key_skill%}
+              <div class="keySkillCard">
+                  {% if sk.image %}
+                    <div class="ksIconCol">
+                      <img src={{sk.image.url}} alt="image">
+                    </div>
+                  {% endif %}
+                  <span class="ksText">{{sk.name}}</span>
+
+                  <div class="progress progressStyle">
+                    <div class="progress-bar" role="progressbar" style="width: {{sk.score}}%" aria-valuenow="{{sk.score}}" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="col-auto">
+                    <span class="pLbl">{{sk.score}}%</span>
+                  </div>
+               
+              </div>
+              {%endif%}
+            {% endfor %}
+          </div>
+        </div>
         <div class="col-md">
           <h4 class="smTitle pb-3">Core Programming Competencies</h4>
           <div class="progressCol">
