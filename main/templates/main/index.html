@@ -88,7 +88,7 @@
                 <div class="row g-2 align-items-center">
                   <div class="col">
                     <div class="progress progressStyle">
-                      <div class="progress-bar" role="progressbar" style="width: {{ sk.score }}%" aria-valuenow="{{ sk.score }}" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: {{ sk.score }}%" aria-valuenow="{{ sk.score }}" aria-valuemin="100" aria-valuemax="0"></div>
                     </div>
                   </div>
                   <div class="col-auto">
@@ -99,6 +99,7 @@
               {%endif%}
               {% endfor %}
               <div class="progress progressStyle">
+
                 <div class="progress-bar" role="progressbar" 
                      style="width: {{sk.score}}%; background-color: #FF5733;" 
                      aria-valuenow="{{sk.score}}" 
