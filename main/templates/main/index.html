@@ -51,37 +51,36 @@
     <div class="container">
       <div class="row">
 
+        <!-- Key Skills Section -->
         <div class="col-md-auto">
           <h4 class="smTitle pb-3">Core Programming Competencies</h4>
           <div class="keySkillCol">
-            {% comment %} <h4 class="smTitle pb-3">version</h4> {% endcomment %}
-            {% for sk in  me.userprofile.skills.all %}
+            {% for sk in me.userprofile.skills.all %}
+            {% if sk.is_key_skill %}
+            <div class="keySkillCard">
+              <span class="ksText">{{ sk.name }}</span>
 
-            {%if sk.is_key_skill%}
-              <div class="keySkillCard">
-                  <span class="ksText">{{sk.name}}</span>
-
-                  <div class="progress progressStyle">
-                    <div class="progress-bar" 
-                    role="progressbar" 
-                    style="width: {{sk.score}}%  background: linear-gradient(to right,   #FF5733 {{sk.score}}%, #CCCCCC {{sk.score}}%); "
-                         aria-valuenow="{{sk.score}}" 
-                         aria-valuemin="0" 
-                         aria-valuemax="100">
-                    </div>
-                  </div>
-                  
-                  <div class="col-auto">
-                    <span class="pLbl">{{sk.score}}%</span>
-                  </div>
-               
+              <div class="progress progressStyle">
+                <div class="progress-bar" 
+                     role="progressbar" 
+                     style="width: {{ sk.score }}%; background: #FF5733;" 
+                     aria-valuenow="{{ sk.score }}" 
+                     aria-valuemin="0" 
+                     aria-valuemax="100">
+                </div>
               </div>
-              {%endif%}
+
+              <div class="col-auto">
+                <span class="pLbl">{{ sk.score }}%</span>
+              </div>
+            </div>
+            {% endif %}
             {% endfor %}
           </div>
         </div>
+
+        <!-- Other Skills Section -->
         <div class="col-md">
-       
           <div class="progressCol">
             <div class="progressCard">
               {% for sk in me.userprofile.skills.all %}
@@ -92,11 +91,11 @@
                   <div class="col">
                     <div class="progress progressStyle">
                       <div class="progress-bar" 
-                      role="progressbar" 
-                      style="width: {{ sk.score }}%; background: linear-gradient(to right,   #FF5733 {{sk.score}}%,rgb(11, 255, 105) {{sk.score}}%); "
-                       aria-valuenow="{{ sk.score }}" 
-                       aria-valuemin="0" 
-                       aria-valuemax="100">
+                           role="progressbar" 
+                           style="width: {{ sk.score }}%; background: #FF5733;" 
+                           aria-valuenow="{{ sk.score }}" 
+                           aria-valuemin="0" 
+                           aria-valuemax="100">
                       </div>
                     </div>
                   </div>
@@ -105,15 +104,17 @@
                   </div>
                 </div>
               </div>
-              {%endif%}
+              {% endif %}
               {% endfor %}
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </section>
+
 
 <section>
   <div class="sectionSpaceSm lightBg">
