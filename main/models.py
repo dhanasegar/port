@@ -188,7 +188,7 @@ class ContactProfile(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-    class Certificate(models.Model):
+class Certificate(models.Model):
 
     class Meta:
         verbose_name_plural = 'Certificates'
