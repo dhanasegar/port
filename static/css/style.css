@@ -219,22 +219,27 @@ p {
   margin: 0;
 }
 
-
 .bannerSection {
-  text-align: center; /* Center-align content */
+  text-align: center; /* Ensure overall content is centered */
+}
+
+.bannerUserImg {
+  display: flex; /* Use flex for alignment */
+  justify-content: center; /* Center horizontally */
+  margin-bottom: 20px; /* Add spacing below the image */
 }
 
 .bannerUserImg img {
-  display: inline-block; /* Ensure the image is centered */
-  border-radius: 50%; /* Optional: To make the image circular */
+  border-radius: 50%; /* Optional: Circular image */
 }
 
-.bannerContent p {
-  text-align: justify; /* Justify the paragraph content */
-  margin-top: 20px; /* Add spacing */
-  line-height: 1.6; /* Improve readability */
+.bio-text {
+  text-align: justify; /* Justify the paragraph text */
+  margin: 20px auto; /* Add spacing around the paragraph */
+  max-width: 800px; /* Limit paragraph width for better readability */
+  line-height: 1.6; /* Improve line spacing for readability */
 }
 
 .bannerBtnCol .btn {
-  margin: 0 10px; /* Add spacing between buttons */
+  margin: 0 10px; /* Space between buttons */
 }
