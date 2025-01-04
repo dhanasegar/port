@@ -43,7 +43,7 @@ h1, p {
 }
 
 /* Updated Profile Container */
-/* .profile-container {
+.profile-container {
   width: 100%;
   max-width: 300px; 
   height: auto; 
@@ -67,7 +67,7 @@ h1, p {
   height: 100%; 
   object-fit: cover; 
   border-radius: 50%; 
-} */
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
