@@ -34,7 +34,7 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
-    # avatar_url = models.URLField(blank=True, null=True)  # Add avatar URL field
+    avatar_url = models.URLField(blank=True, null=True)  # Add avatar URL field
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
@@ -159,7 +159,7 @@ class Testimonial(models.Model):
         ordering = ["name"]
 
     # thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
-    thumbnail_url = models.URLField(blank=True, null=True)  # Add thumbnail URL field
+    # thumbnail_url = models.URLField(blank=True, null=True)  # Add thumbnail URL field
     name = models.CharField(max_length=200, blank=True, null=True)
     role = models.CharField(max_length=200, blank=True, null=True)
     quote = models.CharField(max_length=500, blank=True, null=True)
