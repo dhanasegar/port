@@ -49,21 +49,21 @@
 <section>
   <div class="sectionSpace pt-0">
     <div class="container">
-      <div class="row">
+      <div class="row g-4"> <!-- Gap between rows -->
 
         <!-- Key Skills Section -->
-        <div class="col-md-auto">
-          <h4 class="smTitle pb-3">Core Programming Competencies</h4>
+        <div class="col-12 col-md-6"> <!-- Full width on mobile, half-width on larger screens -->
+          <h4 class="smTitle pb-3 text-center text-md-start">Core Programming Competencies</h4>
           <div class="keySkillCol">
             {% for sk in me.userprofile.skills.all %}
             {% if sk.is_key_skill %}
-            <div class="keySkillCard">
+            <div class="keySkillCard mb-3"> <!-- Spacing between cards -->
               <span class="ksText">{{ sk.name }}</span>
 
               <div class="progress progressStyle">
                 <div class="progress-bar" 
                      role="progressbar" 
-                     style="width: {{ sk.score }}%; background: #FF5733;" 
+                     style="width: {{ sk.score }}%; background: #f8f9fa;" 
                      aria-valuenow="{{ sk.score }}" 
                      aria-valuemin="0" 
                      aria-valuemax="100">
@@ -80,33 +80,32 @@
         </div>
 
         <!-- Other Skills Section -->
-        <div class="col-md">
+        <div class="col-12 col-md-6"> <!-- Full width on mobile, half-width on larger screens -->
+          <h4 class="smTitle pb-3 text-center text-md-start">Other Skills</h4>
           <div class="progressCol">
-            <div class="progressCard">
-              {% for sk in me.userprofile.skills.all %}
-              {% if not sk.is_key_skill %}
-              <div class="progressCol">
-                <span class="progressLbl">{{ sk.name }}</span>
-                <div class="row g-2 align-items-center">
-                  <div class="col">
-                    <div class="progress progressStyle">
-                      <div class="progress-bar" 
-                           role="progressbar" 
-                           style="width: {{ sk.score }}%; background: #FF5733;" 
-                           aria-valuenow="{{ sk.score }}" 
-                           aria-valuemin="0" 
-                           aria-valuemax="100">
-                      </div>
+            {% for sk in me.userprofile.skills.all %}
+            {% if not sk.is_key_skill %}
+            <div class="progressCol mb-3"> <!-- Spacing between cards -->
+              <span class="progressLbl">{{ sk.name }}</span>
+              <div class="row g-2 align-items-center">
+                <div class="col">
+                  <div class="progress progressStyle">
+                    <div class="progress-bar" 
+                         role="progressbar" 
+                         style="width: {{ sk.score }}%; background: #f8f9fa;" 
+                         aria-valuenow="{{ sk.score }}" 
+                         aria-valuemin="0" 
+                         aria-valuemax="100">
                     </div>
                   </div>
-                  <div class="col-auto">
-                    <span class="pLbl">{{ sk.score }}%</span>
-                  </div>
+                </div>
+                <div class="col-auto">
+                  <span class="pLbl">{{ sk.score }}%</span>
                 </div>
               </div>
-              {% endif %}
-              {% endfor %}
             </div>
+            {% endif %}
+            {% endfor %}
           </div>
         </div>
 
@@ -114,6 +113,7 @@
     </div>
   </div>
 </section>
+
 
 
 <section>
