@@ -135,7 +135,6 @@
 </section>
 
 <section>
-  
   <div class="sectionSpace">
     <div class="container">
       <div class="portfolioCol">
@@ -155,26 +154,17 @@
               <div class="portfolioImgCol">
                 <a href="{% url 'main:portfolio' slug=p.slug %}">
                   <div class="academic-container">
-                    {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="academic-svg" preserveAspectRatio="xMidYMid meet">
-                      <defs>
-                        <linearGradient id="academicGradientUnique" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" style="stop-color:rgb(130, 21, 255); stop-opacity: 1" />
-                          <stop offset="100%" style="stop-color:rgb(227, 13, 255); stop-opacity: 1" />
-                        </linearGradient>
-                        <pattern id="academicPatternUnique" patternUnits="userSpaceOnUse" width="10" height="10">
-                          <circle cx="5" cy="5" r="2" fill="white" />
-                        </pattern>
-                      </defs>
-                      <circle cx="50" cy="50" r="30" fill="url(#academicGradientUnique)" />
-                      <circle cx="50" cy="50" r="20" fill="url(#academicPatternUnique)" />
-                      <circle cx="50" cy="50" r="5" fill="rgba(255, 255, 255, 0.9)" />
-                    </svg>
-                     {% endcomment %}
-                     <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo" width="200px">
-                    
-                  
-                  
-                  
+                    {% if p.image_url %}
+                      <!-- If there's an external image URL, use it -->
+                      <img src="{{ p.image_url }}" alt="Academic Image" class="logo" width="200px">
+                    {% elif p.image %}
+                      <!-- If there's an uploaded image, use it -->
+                      <img src="{{ p.image.url }}" alt="Academic Image" class="logo" width="200px">
+                    {% else %}
+                      <!-- Default image if no image is available -->
+                      <img src="{% static 'images/default-image.png' %}" alt="Default Logo" class="logo" width="200px">
+                    {% endif %}
+                  </div>
                 </a>
               </div>
             </div>
@@ -192,9 +182,10 @@
         {% endif %}
         {% endfor %}
       </div>
-    </div>
+
+      <!-- Employment Section -->
       <div class="testimonialCol">
-        <h4 class="smText regular d-block"> EMPLOYMENT</h4>
+        <h4 class="smText regular d-block">EMPLOYMENT</h4>
         <div class="testimonialSlider">
           <div class="swiper testimonialSwiper">
             <div class="swiper-wrapper">
@@ -204,19 +195,23 @@
                 <div class="testimonialCard">
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
-                      
                       <div class="tImgCol">
-                        {%if t.thumbnail%}
-                        <img src="{{t.thumbnail.url}}" alt="image">
-                        {%else %}
-                        <img src="path/to/default/image.jpg" alt ="Default image">
-                        {%endif%}
+                        {% if t.thumbnail_url %}
+                          <!-- If there's an external thumbnail URL, use it -->
+                          <img src="{{ t.thumbnail_url }}" alt="Testimonial Image">
+                        {% elif t.thumbnail %}
+                          <!-- If there's an uploaded thumbnail, use it -->
+                          <img src="{{ t.thumbnail.url }}" alt="Testimonial Image">
+                        {% else %}
+                          <!-- Default image if no thumbnail is available -->
+                          <img src="{% static 'images/default-testimonial.jpg' %}" alt="Default Testimonial Image">
+                        {% endif %}
                       </div>
                     </div>
                     <div class="col-sm">
                       <div class="tContentCol">
-                        <h4 class="xsTitle bold">{{t.name}} - {{t.role}}</h4>
-                        <p>{{t.quote}}</p>
+                        <h4 class="xsTitle bold">{{ t.name }} - {{ t.role }}</h4>
+                        <p>{{ t.quote }}</p>
                       </div>
                     </div>
                   </div>
@@ -224,18 +219,17 @@
               </div>
               {% endif %}
               {% endfor %}
-
             </div>
             <div class="test-swiper-button-next swiper-button-next swiperBtnStyle"></div>
             <div class="test-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
           </div>
-
-
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
 
 <section>
   <div class="sectionSpaceSm lightBg">
