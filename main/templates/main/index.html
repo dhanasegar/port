@@ -156,13 +156,13 @@
                   <div class="academic-container">
                     {% if p.image_url %}
                       <!-- If there's an external image URL, use it -->
-                      <img src="{{ p.image_url }}" alt="Academic Image" class="logo" width="200px">
+                      <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'alt="Academic Image" class="logo" width="200px">
                     {% elif p.image %}
                       <!-- If there's an uploaded image, use it -->
-                      <img src="{{ p.image.url }}" alt="Academic Image" class="logo" width="200px">
+                      <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt="Academic Image" class="logo" width="200px">
                     {% else %}
                       <!-- Default image if no image is available -->
-                      <img src="{% static 'images/default-image.png' %}" alt="Default Logo" class="logo" width="200px">
+                      <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt="Default Logo" class="logo" width="200px">
                     {% endif %}
                   </div>
                 </a>
