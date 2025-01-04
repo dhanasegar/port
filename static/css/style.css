@@ -43,26 +43,26 @@ h1, p {
 }
 
 /* Updated Profile Container */
-.profile-container {
+.bannerUserImg {
   width: 100%;
   max-width: 300px; 
   height: auto; 
-  background-size: cover;
+  /* background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('images/profile.svg'); 
+  background-repeat: no-repeat; */
+  /* background-image: url('images/profile.svg');  */
   border-radius: 50%; 
   overflow: hidden; 
   margin: 0 auto; 
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.profile-container:hover {
+.bannerUserImg:hover {
   transform: scale(1.05); 
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.profile-container img {
+.bannerUserImg img {
   width: 100%; 
   height: 100%; 
   object-fit: cover; 
