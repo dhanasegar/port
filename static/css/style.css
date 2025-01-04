@@ -145,132 +145,34 @@ p {
   background-color: #0056b3;
 }
 
-/* Remaining styles (e.g., animations, portfolio, etc.) remain unchanged */
-.profile-container svg {
-  width: 100%;
-  height: auto;
-}
-.profile-container {
-  z-index: 10;
-  position: relative;
-}
-
-/* Style for the portfolio section */
-.pCol {
-  position: relative; /* To allow overlay positioning */
-}
-
-.image-wrapper {
-  position: relative;
-  overflow: hidden; /* Ensure content is contained within image */
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: auto;
-}
-
-.image-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-}
-
-.image-overlay h4 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-/* Style for the blog section */
-.pCol {
-  position: relative; /* To allow overlay positioning */
-}
-
-.image-wrapper {
-  position: relative;
-  overflow: hidden; /* Ensure content is contained within image */
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: auto;
-}
-
-.image-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-}
-
-.image-overlay h4 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-.bannerSection {
-  text-align: center; /* Ensure overall content is centered */
-}
-
-.bannerUserImg {
-  display: flex; /* Use flex for alignment */
-  justify-content: center; /* Center horizontally */
-  margin-bottom: 20px; /* Add spacing below the image */
-}
-
-.bannerUserImg img {
-  border-radius: 50%; /* Optional: Circular image */
-}
-
-.bio-text {
-  text-align: justify; /* Justify the paragraph text */
-  margin: 20px auto; /* Add spacing around the paragraph */
-  max-width: 800px; /* Limit paragraph width for better readability */
-  line-height: 1.6; /* Improve line spacing for readability */
-}
-
-.bannerBtnCol .btn {
-  margin: 0 10px; /* Space between buttons */
-}
-
 .progress {
-  background: #e0e0e0; /* Slightly darker gray for unfilled portion */
-  border-radius: 10px; /* Rounded edges */
-  height: 20px; /* Adjust the height of the progress bar */
+  background-color: #ffffff; /* White background for unfilled portion */
+  border: 1px solid #e0e0e0; /* Optional border for the progress bar */
+  border-radius: 10px; /* Smooth corners */
+  height: 20px; /* Adjust height of the progress bar */
 }
 
-
+.progress-bar {
+  background-color: #FF5733; /* Color for the filled portion */
+  border-radius: 10px; /* Ensure smooth corners for filled portion */
+}
 
 .keySkillCard, .progressCol {
   padding: 10px;
-  border: 1px solid #e0e0e0; /* Optional border */
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
   border-radius: 5px;
-  background: #ffffff; /* Light background */
-}
-
-.progressStyle {
-  height: 20px; /* Uniform progress bar height */
 }
 
 .sectionSpace {
-  padding: 30px 15px; /* Responsive padding */
+  padding: 30px 15px;
 }
 
 .smTitle {
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 20px; /* Spacing below section titles */
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .pLbl {
@@ -279,11 +181,11 @@ p {
 }
 
 @media (max-width: 768px) {
-  .keySkillCard, .progressCol {
-    margin-bottom: 20px; /* Increase spacing for mobile */
+  .progress {
+    height: 16px; /* Slightly smaller height for mobile */
   }
 
-  .progressStyle {
-    height: 16px; /* Smaller progress bar height for mobile */
+  .smTitle {
+    font-size: 16px;
   }
 }
