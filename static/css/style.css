@@ -147,14 +147,14 @@ p {
 
 .progress {
   background-color: #ffffff; /* White background for unfilled portion */
-  border: 1px solid #e0e0e0; /* Optional border for the progress bar */
-  border-radius: 10px; /* Smooth corners */
-  height: 20px; /* Adjust height of the progress bar */
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  height: 20px;
 }
 
 .progress-bar {
-  background-color: #FF5733; /* Color for the filled portion */
-  border-radius: 10px; /* Ensure smooth corners for filled portion */
+  background-color: #FF5733;
+  border-radius: 10px;
 }
 
 .keySkillCard, .progressCol {
@@ -182,7 +182,7 @@ p {
 
 @media (max-width: 768px) {
   .progress {
-    height: 16px; /* Slightly smaller height for mobile */
+    height: 16px;
   }
 
   .smTitle {

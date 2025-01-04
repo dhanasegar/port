@@ -61,20 +61,20 @@
               <span class="progressLb">{{ sk.name }}</span>
               <div class="row g-2 align-items-center">
                 <div class="col">
-              <div class="progress progressStyle">
-                <div class="progress-bar" 
-                     role="progressbar" 
-                     style="width: {{ sk.score }}%; background-color: #FF5733;" 
-                     aria-valuenow="{{ sk.score }}" 
-                     aria-valuemin="0" 
-                     aria-valuemax="100">
+                  <div class="progress progressStyle">
+                    <div class="progress-bar" 
+                         role="progressbar" 
+                         style="width: {{ sk.score }}%; background-color: #FF5733;" 
+                         aria-valuenow="{{ sk.score }}" 
+                         aria-valuemin="0" 
+                         aria-valuemax="100">
+                    </div>
+                  </div>
                 </div>
-              </div>
-              </div>
-            </div>
-
-              <div class="col-auto">
-                <span class="pLbl">{{ sk.score }}%</span>
+                <div class="col-auto">
+                  <!-- Percentage displayed to the right of the progress bar -->
+                  <span class="pLbl">{{ sk.score }}%</span>
+                </div>
               </div>
             </div>
             {% endif %}
@@ -84,7 +84,7 @@
 
         <!-- Other Skills Section -->
         <div class="col-md-6 col-12 d-flex flex-column justify-content-start">
-          <h4 class="smTitle pb-3 text-center"></h4>
+          <h4 class="smTitle pb-3 text-center">Other Skills</h4>
           <div class="progressCol">
             {% for sk in me.userprofile.skills.all %}
             {% if not sk.is_key_skill %}
@@ -103,6 +103,7 @@
                   </div>
                 </div>
                 <div class="col-auto">
+                  <!-- Percentage displayed to the right of the progress bar -->
                   <span class="pLbl">{{ sk.score }}%</span>
                 </div>
               </div>
@@ -116,6 +117,7 @@
     </div>
   </div>
 </section>
+
 
 
 
