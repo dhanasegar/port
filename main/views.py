@@ -5,7 +5,7 @@ from .models import (
 		Blog,
 		Portfolio,
 		Testimonial,
-		Certificate
+		Certificate,
 	)
 
 from django.views import generic
