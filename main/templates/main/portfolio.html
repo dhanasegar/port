@@ -34,7 +34,7 @@
             <div class="pCol">
               <a href="{% url 'main:portfolio' slug=obj.slug %}" >
 
-                <svg class="academicCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+                {% comment %} <svg class="academicCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
                   <!-- Background with Gradient -->
                   <defs>
                       <linearGradient id="gradBackground" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -63,8 +63,9 @@
                   <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="5" fill="black" text-anchor="middle">
                     {{ obj.name }}
                     </text>
-              </svg>
-              
+              </svg> {% endcomment %}
+              <img src='https://static.vecteezy.com/system/resources/thumbnails/044/280/984/small_2x/stack-of-books-on-a-brown-background-concept-for-world-book-day-photo.jpg' alt="Default Logo" class="logo" width="200px">
+
               </a>
             </div>
           </div>
