@@ -42,7 +42,7 @@ h1, p {
   padding: 50px 0;
 }
 
-.bannerUserImg {
+.profile-container {
 
   width: 100%;
   max-width: 300px; /* Ensure it doesn't get too large */
@@ -57,7 +57,7 @@ h1, p {
   
 }
 
-.bannerUserImg img {
+.profile-container img {
   width: 100%;
   height: auto;
   border-radius: 8px;
@@ -124,10 +124,6 @@ p {
   background-color: #0056b3;
 }
 
-/* Ensure existing functions are not affected */
-.existing-class {
-  /* Add your existing styles here */
-}
 
 .pCol {
   display: flex;
@@ -311,7 +307,7 @@ p {
 
 
 
-bannerContent p {
+.bannerContent p {
   text-align: justify;
   font-size: 76px; /* Adjust as needed */
   line-height: 1.8; /* Improve readability */
