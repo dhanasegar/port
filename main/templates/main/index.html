@@ -15,8 +15,11 @@
       <div class="row g-4 g-md-3 align-items-center">
         <div class="col-md-auto order-md-last">
           <div class="bannerUserImg">
-            <div class="profile-container">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="profile-svg" preserveAspectRatio="xMidYMid meet">
+            <!-- Profile Container -->
+            <div class="profile-container" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; background-color: #f3f3f3;">
+
+              <!-- SVG Inside Circle -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="profile-svg" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
                 <defs>
                   <linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style="stop-color:rgb(255, 100, 0); stop-opacity: 1" />
@@ -26,14 +29,16 @@
                     <circle cx="5" cy="5" r="2" fill="white" />
                   </pattern>
                 </defs>
+                <!-- Outer Gradient Circle -->
                 <circle cx="50" cy="50" r="45" fill="url(#profileGradient)" />
+                <!-- Pattern Circle -->
                 <circle cx="50" cy="50" r="35" fill="url(#profilePattern)" />
+                <!-- Inner White Circle -->
                 <circle cx="50" cy="50" r="20" fill="rgba(255, 255, 255, 0.9)" />
               </svg>
-              
+
             </div>
           </div>
-
         </div>
         <div class="col-md">
           <div class="bannerContent">
@@ -55,6 +60,7 @@
     </div>
   </div>
 </section>
+
 
 <section>
   <div class="sectionSpace pt-0">
