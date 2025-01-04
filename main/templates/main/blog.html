@@ -33,7 +33,23 @@
             <div class="pCol">
               <a href="{% url 'main:blog' slug=obj.slug %}">
                 <!-- Dynamic SVG with unique design for each project -->
-                {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" class="dynamic-svg">
+           
+                <img src='https://forte.com.tr/assets/imgs/blog/80.webp' alt="Academic Image" class="logo" width="500px">
+                <h4>{{ b.name }}</h4>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+
+     {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" class="dynamic-svg">
                   <!-- Gradient Background -->
                   <defs>
                     <linearGradient id="gradient-{{ forloop.counter }}" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -55,15 +71,3 @@
                     {{ obj.name }}
                   </text>
                 </svg> {% endcomment %}
-                <img src='https://forte.com.tr/assets/imgs/blog/80.webp' alt="Academic Image" class="logo" width="500px">
-                <h4>{{ b.name }}</h4>
-              </a>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-{% endblock %}

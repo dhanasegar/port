@@ -153,3 +153,35 @@ p {
   z-index: 10;
   position: relative;
 }
+
+/* Style for the portfolio section */
+.pCol {
+  position: relative; /* To allow overlay positioning */
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden; /* Ensure content is contained within image */
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.image-overlay h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}

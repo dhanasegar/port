@@ -1,8 +1,8 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Portfolio Psge{% endblock %}
-{% block decription %}{% endblock %}
+{% block title %}Portfolio Page{% endblock %}
+{% block description %}{% endblock %}
 {% block keywords %}{% endblock %}
 
 {% block extend_header %}{% endblock %}
@@ -31,10 +31,29 @@
         <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
           {% for obj in object_list %}
           <div class="col-md-6 pColMain">
-            <div class="pCol">
-              <a href="{% url 'main:portfolio' slug=obj.slug %}" >
+            <div class="pCol position-relative">
+              <a href="{% url 'main:portfolio' slug=obj.slug %}">
+                <div class="image-wrapper">
+                  <img src="https://static.vecteezy.com/system/resources/thumbnails/044/280/984/small_2x/stack-of-books-on-a-brown-background-concept-for-world-book-day-photo.jpg" alt="Default Logo" class="logo" width="100%">
+                  <div class="image-overlay">
+                    <h4>{{ obj.name }}</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                {% comment %} <svg class="academicCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+{% endblock %}
+
+
+
+ {% comment %} <svg class="academicCover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
                   <!-- Background with Gradient -->
                   <defs>
                       <linearGradient id="gradBackground" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -64,17 +83,3 @@
                     {{ obj.name }}
                     </text>
               </svg> {% endcomment %}
-              <img src='https://static.vecteezy.com/system/resources/thumbnails/044/280/984/small_2x/stack-of-books-on-a-brown-background-concept-for-world-book-day-photo.jpg' alt="Default Logo" class="logo" width="500px">
-              <h4>{{ p.name }}</h4>
-              </a>
-            </div>
-          </div>
-          {% endfor %}
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% endblock%}    
