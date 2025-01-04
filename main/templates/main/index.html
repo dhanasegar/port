@@ -62,7 +62,7 @@
                   <span class="ksText">{{sk.name}}</span>
 
                   <div class="progress progressStyle">
-                    <div class="progress-bar" role="progressbar" style="width: {{sk.score}}%;  background: linear-gradient(to right,   #FF5733 {{sk.score}}%, #CCCCCC {{sk.score}}%); height: 20px; border-radius: 5px;"
+                    <div class="progress-bar" role="progressbar" style="width: {{sk.score}}%  background: linear-gradient(to right,   #FF5733 {{sk.score}}%, #CCCCCC {{sk.score}}%); height: 20px; border-radius: 5px;"
                          aria-valuenow="{{sk.score}}" 
                          aria-valuemin="0" 
                          aria-valuemax="100">
@@ -89,7 +89,8 @@
                 <div class="row g-2 align-items-center">
                   <div class="col">
                     <div class="progress progressStyle">
-                      <div class="progress-bar" role="progressbar" style="width: {{ sk.score }}%" aria-valuenow="{{ sk.score }}" aria-valuemin="100" aria-valuemax="0"></div>
+                      <div class="progress-bar" role="progressbar" style="width: {{ sk.score }}%"background: linear-gradient(to right,   #FF5733 {{sk.score}}%, #CCCCCC {{sk.score}}%); height: 20px; border-radius: 5px; aria-valuenow="{{ sk.score }}" aria-valuemin="0" aria-valuemax="100">
+                      </div>
                     </div>
                   </div>
                   <div class="col-auto">
