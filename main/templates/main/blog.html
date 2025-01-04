@@ -2,12 +2,13 @@
 {% load static %}
 
 {% block title %}Portfolio Project{% endblock %}
-{% block decription %}Blog Description{% endblock %}
+{% block description %}Blog Description{% endblock %}
 {% block keywords %}Blog keywords{% endblock %}
 
 {% block extend_header %}{% endblock %}
 
 {% block extend_footer %}{% endblock %}
+
 {% block content %}
 <section>
   <div class="innerPageBannerCol">
@@ -30,12 +31,14 @@
         <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
           {% for obj in object_list %}
           <div class="col-md-6 pColMain">
-            <div class="pCol">
+            <div class="pCol position-relative">
               <a href="{% url 'main:blog' slug=obj.slug %}">
-                <!-- Dynamic SVG with unique design for each project -->
-           
-                <img src='https://forte.com.tr/assets/imgs/blog/80.webp' alt="Academic Image" class="logo" width="500px">
-                <h4>{{ b.name }}</h4>
+                <div class="image-wrapper">
+                  <img src="https://forte.com.tr/assets/imgs/blog/80.webp" alt="Academic Image" class="logo" width="100%">
+                  <div class="image-overlay">
+                    <h4>{{ obj.name }}</h4>
+                  </div>
+                </div>
               </a>
             </div>
           </div>
@@ -46,7 +49,6 @@
   </div>
 </section>
 {% endblock %}
-
 
 
      {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" class="dynamic-svg">
