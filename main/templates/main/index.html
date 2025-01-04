@@ -54,11 +54,13 @@
         <!-- Key Skills Section -->
         <div class="col-md-6 col-12 d-flex flex-column justify-content-start">
           <h4 class="smTitle pb-3 text-center">Core Programming Competencies</h4>
-          <div class="keySkillCol">
+          <div class="progressCol">
             {% for sk in me.userprofile.skills.all %}
             {% if sk.is_key_skill %}
-            <div class="keySkillCard mb-3">
+            <div class="progressCol mb-3">
               <span class="ksText">{{ sk.name }}</span>
+              <div class="row g-2 align-items-center">
+                <div class="col">
 
               <div class="progress progressStyle">
                 <div class="progress-bar" 
@@ -81,7 +83,7 @@
 
         <!-- Other Skills Section -->
         <div class="col-md-6 col-12 d-flex flex-column justify-content-start">
-          <h4 class="smTitle pb-3 text-center">Other Skills</h4>
+          <h4 class="smTitle pb-3 text-center"></h4>
           <div class="progressCol">
             {% for sk in me.userprofile.skills.all %}
             {% if not sk.is_key_skill %}
