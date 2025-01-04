@@ -58,11 +58,7 @@
 
             {%if sk.is_key_skill%}
               <div class="keySkillCard">
-                  {% if sk.image %}
-                    <div class="ksIconCol">
-                      <img src={{sk.image.url}} alt="image">
-                    </div>
-                  {% endif %}
+              
                   <span class="ksText">{{sk.name}}</span>
 
                   <div class="progress progressStyle">
@@ -82,7 +78,7 @@
           <div class="progressCol">
             <div class="progressCard">
               {% for sk in me.userprofile.skills.all %}
-              {% if  sk.is_key_skill %}
+              {% if  not sk.is_key_skill %}
               <div class="progressCol">
                 <span class="progressLbl">{{ sk.name }}</span>
                 <div class="row g-2 align-items-center">
@@ -99,7 +95,7 @@
               {% endfor %}
               <div class="progress progressStyle">
                 <div class="progress-bar" role="progressbar" 
-                     style="width: {{sk.score}}%; background-color: #FF5733;" 
+                     style="width: {{sk.score}}%; background-color:rgb(7, 1, 0);" 
                      aria-valuenow="{{sk.score}}" 
                      aria-valuemin="0" 
                      aria-valuemax="100">
