@@ -76,11 +76,12 @@ h1, p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .profile-container {
-    max-width: 150px; /* Further reduce size for very small screens */
+    max-width: 150px;
   }
 }
+
 
 h1 {
   font-size: 36px;
@@ -144,3 +145,11 @@ p {
 }
 
 /* Remaining styles (e.g., animations, portfolio, etc.) remain unchanged */
+.profile-container svg {
+  width: 100%;
+  height: auto;
+}
+.profile-container {
+  z-index: 10;
+  position: relative;
+}
