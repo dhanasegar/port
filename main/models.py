@@ -11,7 +11,7 @@ class Skill(models.Model):
     
     name = models.CharField(max_length=100, blank=True, null=True)
     score = models.IntegerField(default=80, blank=True, null=True)
-    image = models.FileField(upload_to="skills", blank=True, null=True)
+    # image = models.FileField(upload_to="skills", blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)  # Add image URL field
     is_key_skill = models.BooleanField(default=False)
 
@@ -33,7 +33,7 @@ class UserProfile(models.Model):
         verbose_name = 'User Profile'
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
+    # avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
     avatar_url = models.URLField(blank=True, null=True)  # Add avatar URL field
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
@@ -58,7 +58,7 @@ class Media(models.Model):
         verbose_name = 'Media'
         ordering = ["name"]
 
-    image = models.ImageField(blank=True, null=True, upload_to="media")
+    # image = models.ImageField(blank=True, null=True, upload_to="media")
     image_url = models.URLField(blank=True, null=True)  # Add image URL field
     url = models.URLField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
@@ -91,7 +91,7 @@ class Portfolio(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
-    image = models.ImageField(blank=True, null=True, upload_to="portfolio")
+    # image = models.ImageField(blank=True, null=True, upload_to="portfolio")
     image_url = models.URLField(blank=True, null=True)  # Add image URL field
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
@@ -128,7 +128,7 @@ class Blog(models.Model):
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
-    image = models.ImageField(blank=True, null=True, upload_to="blog")
+    # image = models.ImageField(blank=True, null=True, upload_to="blog")
     image_url = models.URLField(blank=True, null=True)  # Add image URL field
     is_active = models.BooleanField(default=True)
 
@@ -158,7 +158,7 @@ class Testimonial(models.Model):
         verbose_name = 'Testimonial'
         ordering = ["name"]
 
-    thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
+    # thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
     thumbnail_url = models.URLField(blank=True, null=True)  # Add thumbnail URL field
     name = models.CharField(max_length=200, blank=True, null=True)
     role = models.CharField(max_length=200, blank=True, null=True)
