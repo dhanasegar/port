@@ -86,5 +86,5 @@ def my_view(request):
         'testimonials': testimonials,
         'external_urls': external_urls,
     }
-    return render(request, 'my_template.html', context)
+    return render(request, 'index.html', context)
 
