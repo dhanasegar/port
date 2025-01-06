@@ -49,18 +49,13 @@ class ContactProfile(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-
-
-
 class Testimonial(models.Model):
-
     class Meta:
         verbose_name_plural = 'Testimonials'
         verbose_name = 'Testimonial'
         ordering = ["id"]
 
     thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
-    thumbnail_url = models.URLField(blank=True, null=True)  # Add a field for external image URLs
     name = models.CharField(max_length=200, blank=True, null=True)
     role = models.CharField(max_length=200, blank=True, null=True)
     quote = models.CharField(max_length=500, blank=True, null=True)
@@ -68,6 +63,32 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def thumbnail_url(self):
+        if self.thumbnail:
+            return self.thumbnail.url  # Django's `url` attribute for ImageField
+        return None
+
+
+
+
+# class Testimonial(models.Model):
+
+#     class Meta:
+#         verbose_name_plural = 'Testimonials'
+#         verbose_name = 'Testimonial'
+#         ordering = ["id"]
+
+#     thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
+#     thumbnail_url = models.URLField(blank=True, null=True)  # Add a field for external image URLs
+#     name = models.CharField(max_length=200, blank=True, null=True)
+#     role = models.CharField(max_length=200, blank=True, null=True)
+#     quote = models.CharField(max_length=500, blank=True, null=True)
+#     is_active = models.BooleanField(default=True)
+
+#     def __str__(self):
+#         return self.name
 
 
 
