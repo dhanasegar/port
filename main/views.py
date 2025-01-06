@@ -33,6 +33,7 @@ class IndexView(generic.TemplateView):
 				'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/The_University_of_California_Davis.svg/800px-The_University_of_California_Davis.svg.png',
 				'https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp',
 				'https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp',
+				'https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp',
 				]
 
         context["testimonials"] = testimonials
