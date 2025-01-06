@@ -169,7 +169,7 @@
             <h4 class="smText regular">Academic Qualifications</h4>
           </div>
           <div class="col-auto">
-            <a href="{% url 'main:portfolios' %}" class="simpleLink">View</a>
+            <a href="{% url 'main:portfolios' %}" class="simpleLink">View all</a>
           </div>
         </div>
         {% for p in portfolio %}
@@ -200,7 +200,7 @@
                 <ul class="portfolioOption">
                   <li><span class="dateLbl">{{ p.date.year }}</span></li>
                 </ul>
-                <p>{{ p.description }}</p>
+                <p style="text-align: justify;" >{{ p.description }}</p>
               </div>
             </div>
           </div>
