@@ -27,13 +27,13 @@ class IndexView(generic.TemplateView):
         
         # List of external image URLs corresponding to the testimonials
         external_urls = [
-            'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png',
-            'https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Howard_University_seal.svg/800px-Howard_University_seal.svg.png',
-            'https://upload.wikimedia.org/wikipedia/commons/6/6d/California_State_University_logo.svg',
-            'https://upload.wikimedia.org/wikipedia/en/3/32/Harvard_University_Seal.svg',
-            'https://upload.wikimedia.org/wikipedia/en/a/a6/Stanford_University_seal.svg',
-            'https://upload.wikimedia.org/wikipedia/commons/d/d6/University_of_California_Logo.svg',
-        ]
+                 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png',
+				'https://ouc.howard.edu/sites/ouc.howard.edu/files/styles/large/public/2024-06/howardu_clocktower_logo.png?itok=2BF477uO',
+				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Jhk8UKRvnSzsGESJKo2mbgwhVW3S1wvn4VO-Kn8&usqp=CAE&s',
+				'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/The_University_of_California_Davis.svg/800px-The_University_of_California_Davis.svg.png',
+				'https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp',
+				'https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp',
+				]
 
         context["testimonials"] = testimonials
         context["certificates"] = certificates
