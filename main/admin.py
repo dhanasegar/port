@@ -23,6 +23,8 @@ class ContactAdmin(admin.ModelAdmin):
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = ('id','name','is_active')
+    fields = ('thumbnail', 'thumbnail_url', 'name', 'role', 'quote', 'is_active')
+
 
 @admin.register(Media)
 class MediaAdmin(admin.ModelAdmin):
