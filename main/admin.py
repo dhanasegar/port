@@ -24,6 +24,13 @@ class ContactAdmin(admin.ModelAdmin):
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = ('id','name','is_active')
     fields = ('thumbnail', 'thumbnail_url', 'name', 'role', 'quote', 'is_active')
+    readonly_fields = ('thumbnail_url',)  # Make thumbnail_url read-only
+
+    def thumbnail_url(self, obj):
+        # This will display the thumbnail URL in the admin interface
+        if obj.thumbnail:
+            return obj.thumbnail.url
+        return None
 
 
 @admin.register(Media)
