@@ -57,7 +57,7 @@ class Testimonial(models.Model):
     class Meta:
         verbose_name_plural = 'Testimonials'
         verbose_name = 'Testimonial'
-        ordering = ["name"]
+        ordering = ["id"]
 
     thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
     name = models.CharField(max_length=200, blank=True, null=True)
