@@ -84,7 +84,7 @@
 
         <!-- Other Skills Section -->
         <div class="col-md-6 col-12 d-flex flex-column justify-content-start">
-          <h4 class="smTitle pb-3 text-center"></h4>
+          <h4 class="smTitle pb-3 text-center"> </h4>
           <div class="progressCol">
             {% for sk in me.userprofile.skills.all %}
             {% if not sk.is_key_skill %}
@@ -223,10 +223,9 @@
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="tImgCol">
-                        {% with external_urls|length as url_count %}
-                            <!-- Calculate the index using modulo -->
-                            <img src="{{ external_urls|slice:forloop.counter0|first }}" alt="Testimonial Image">
-                        {% endwith %}
+                   
+                            <img src="{{ external_urls}}" alt="Testimonial Image">
+         
                     </div>
                     </div>
                     <div class="col-sm">
