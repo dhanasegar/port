@@ -52,15 +52,13 @@ class ContactProfile(models.Model):
 from django.db import models
 
 class Testimonial(models.Model):
+
     class Meta:
         verbose_name_plural = 'Testimonials'
         verbose_name = 'Testimonial'
         ordering = ["name"]
 
-    # You still have the image field for uploading images
     thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
-    # Add a new field to store external URLs
-    thumbnail_url = models.URLField(blank=True, null=True, max_length=500)
     name = models.CharField(max_length=200, blank=True, null=True)
     role = models.CharField(max_length=200, blank=True, null=True)
     quote = models.CharField(max_length=500, blank=True, null=True)

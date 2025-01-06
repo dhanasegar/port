@@ -22,13 +22,7 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('timestamp',)
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'is_active', 'get_thumbnail')
-
-    def get_thumbnail(self, obj):
-        if obj.thumbnail:
-            return format_html('<img src="{}" width="50" height="50" />', obj.thumbnail.url)
-        return 'No Image'
-    get_thumbnail.short_description = 'Thumbnail'
+    list_display = ('id','name','is_active')
 
 @admin.register(Media)
 class MediaAdmin(admin.ModelAdmin):
