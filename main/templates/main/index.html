@@ -223,9 +223,10 @@
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="tImgCol">
-                        {% with forloop.counter0|add:0 as index %}
-                        <img src="{{ external_urls|index:index|default:static_url }}" alt="Testimonial Image">
-                    {% endwith %}
+                        {% with external_urls|length as url_count %}
+                            <!-- Calculate the index using modulo -->
+                            <img src="{{ external_urls|slice:forloop.counter0|first }}" alt="Testimonial Image">
+                        {% endwith %}
                     </div>
                     </div>
                     <div class="col-sm">
