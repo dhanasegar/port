@@ -71,3 +71,20 @@ class BlogView(generic.ListView):
 class BlogDetailView(generic.DetailView):
 	model = Blog
 	template_name = "main/blog-detail.html"
+
+def my_view(request):
+    testimonials = Testimonial.objects.all()
+    external_urls = [
+        'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png',
+        'https://example.com/image2.jpg',
+        'https://example.com/image3.jpg',
+        'https://example.com/image4.jpg',
+        'https://example.com/image5.jpg',
+        'https://example.com/image6.jpg',
+    ]
+    context = {
+        'testimonials': testimonials,
+        'external_urls': external_urls,
+    }
+    return render(request, 'my_template.html', context)
+

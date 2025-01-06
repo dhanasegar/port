@@ -222,9 +222,9 @@
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="tImgCol">
-                        {% if t.thumbnail_url %}
-                          <!-- If there's an external thumbnail URL, use it -->
-                          <img src="{{ t.thumbnail_url }}" alt="Testimonial Image">
+                        {% if external_urls|length > forloop.counter0 %}
+                          <!-- If there's an external thumbnail URL from the list -->
+                          <img src="{{ external_urls|slice:forloop.counter0|first }}" alt="Testimonial Image">
                         {% elif t.thumbnail %}
                           <!-- If there's an uploaded thumbnail, use it -->
                           <img src="{{ t.thumbnail.url }}" alt="Testimonial Image">
