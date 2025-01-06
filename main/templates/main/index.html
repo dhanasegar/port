@@ -210,13 +210,14 @@
       </div>
 
       <!-- Employment Section -->
-      <div class="testimonialCol">
-        <h4 class="smText regular d-block">EMPLOYMENT</h4>
-        <div class="testimonialSlider">
-          <div class="swiper testimonialSwiper">
-            <div class="swiper-wrapper">
-              {% for t in testimonials %}
-              {% if t.is_active %}
+        <!-- Employment Section -->
+    <div class="testimonialCol">
+    <h4 class="smText regular d-block">EMPLOYMENT</h4>
+    <div class="testimonialSlider">
+      <div class="swiper testimonialSwiper">
+        <div class="swiper-wrapper">
+          {% for t in testimonials %}
+            {% if t.is_active %}
               <div class="swiper-slide">
                 <div class="testimonialCard">
                   <div class="row align-items-center">
@@ -225,11 +226,8 @@
                         {% if external_urls|length > forloop.counter0 %}
                           <!-- If there's an external thumbnail URL from the list -->
                           <img src="{{ external_urls|slice:forloop.counter0|first }}" alt="Testimonial Image">
-                        {% elif t.thumbnail %}
-                          <!-- If there's an uploaded thumbnail, use it -->
-                          <img src="{{ t.thumbnail.url }}" alt="Testimonial Image">
                         {% else %}
-                          <!-- Default image if no thumbnail is available -->
+                          <!-- Default image if no URL is available (fallback) -->
                           <img src="{% static 'images/default-testimonial.jpg' %}" alt="Default Testimonial Image">
                         {% endif %}
                       </div>
@@ -243,14 +241,15 @@
                   </div>
                 </div>
               </div>
-              {% endif %}
-              {% endfor %}
-            </div>
-            <div class="test-swiper-button-next swiper-button-next swiperBtnStyle"></div>
-            <div class="test-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
-          </div>
+            {% endif %}
+          {% endfor %}
         </div>
+        <div class="test-swiper-button-next swiper-button-next swiperBtnStyle"></div>
+        <div class="test-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
       </div>
+    </div>
+    </div>
+
 
     </div>
   </div>
