@@ -223,12 +223,11 @@
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="tImgCol">
-                        <!-- Use the external image URL from the list -->
-                        {% if external_urls|length > forloop.counter %}
-                            <img src="{{ external_urls|slice:forloop.counter|first }}" alt="Testimonial Image">
+                        {% if external_urls|length > 0 %}
+                            <!-- Use modulo to cycle through the external URLs list -->
+                            <img src="{{ external_urls|slice:forloop.counter0|first }}" alt="Testimonial Image">
                         {% else %}
-                            <!-- Fallback to a default image if no URL is available -->
-                            {% comment %} <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png" alt="Default Testimonial Image"> {% endcomment %}
+                            <img src="{% static 'images/default-testimonial.jpg' %}" alt="Default Testimonial Image">
                         {% endif %}
                     </div>
                     </div>
