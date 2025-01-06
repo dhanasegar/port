@@ -223,12 +223,9 @@
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="tImgCol">
-                        {% if external_urls|length > 0 %}
-                            <!-- Use modulo to cycle through the external URLs list -->
-                            <img src="{{ external_urls|slice:forloop.counter0|first }}" alt="Testimonial Image">
-                        {% else %}
-                            <img src="{% static 'images/default-testimonial.jpg' %}" alt="Default Testimonial Image">
-                        {% endif %}
+                        {% with forloop.counter0|add:0 as index %}
+                        <img src="{{ external_urls|index:index|default:static_url }}" alt="Testimonial Image">
+                    {% endwith %}
                     </div>
                     </div>
                     <div class="col-sm">
