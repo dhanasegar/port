@@ -225,11 +225,10 @@
                       <div class="tImgCol">
                         <!-- Use the external image URL from the list -->
                         {% if external_urls|length > forloop.counter0 %}
-                        <h1> hello world</h1>
                             <img src="{{ external_urls|slice:forloop.counter0|first }}" alt="Testimonial Image">
                         {% else %}
                             <!-- Fallback to a default image if no URL is available -->
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png" alt="Default Testimonial Image">
+                            {% comment %} <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png" alt="Default Testimonial Image"> {% endcomment %}
                         {% endif %}
                     </div>
                     </div>
