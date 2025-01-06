@@ -180,10 +180,10 @@
               <div class="portfolioImgCol">
                 <a href="{% url 'main:portfolio' slug=p.slug %}">
                   <div class="academic-container">
-                    {% if p.id==1 %}
+                    {% if p.id=1 %}
                       <!-- If there's an external image URL, use it -->
                       <img src='https://static.vecteezy.com/system/resources/thumbnails/044/280/984/small_2x/stack-of-books-on-a-brown-background-concept-for-world-book-day-photo.jpg' alt="Default Logo" class="logo" width="200px">
-                    {% elif p.id==2 %}
+                    {% elif p.id=2 %}
                       <!-- If there's an uploaded image, use it -->
                       <img src=	"https://elearningimages.adobe.com/files/2020/06/AdobeStock_244900189-scaled.jpeg" alt="Academic Image" class="logo" width="200px">
                     {% else %}
