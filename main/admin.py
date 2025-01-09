@@ -21,8 +21,9 @@ class UserProfileAdminForm(forms.ModelForm):
         if cv:
             # Convert the file to binary data
             self.instance.cv_binary = cv.read()  # Store the binary content
-            cv.close()  # Close the file after reading it
+       # Close the file after reading it
         return cv
+    
 
 class UserProfileAdmin(admin.ModelAdmin):
     form = UserProfileAdminForm
