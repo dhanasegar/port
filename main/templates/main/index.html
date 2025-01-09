@@ -27,18 +27,17 @@
             <br>
 
             <!-- Animated Heading -->
-            <h1 class="xlTitle pb-3" 
-                style="
-                  font-size: 2.5rem; 
-                  font-weight: bold; 
-                  background: conic-gradient(#553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a); 
-                  -webkit-background-clip: text; 
-                  -webkit-text-fill-color: transparent; 
-                  white-space: nowrap; 
-                  overflow: hidden; 
-                  display: inline-block; 
-                  max-width: 0; 
-                  animation: typing 3s steps(30, end), blink 0.7s step-end infinite;">
+            <h1 class="xlTitle" style="
+            font-size: 2rem;
+            color: black;
+            display: inline-block;
+            overflow: hidden;
+            border-right: 2px solid black;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
+            max-width: 100%; /* Reset max-width after animation */
+            animation-fill-mode: forwards; /* Keeps final animation state */
+          ">
               Hello, It’s {{ me.first_name|title }}, <br> And I'm a {{ me.userprofile.title }}
             </h1>
 
