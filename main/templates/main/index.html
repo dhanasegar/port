@@ -285,7 +285,7 @@
         {% if b.is_active %}
         <div class="col-lg-6">
           <div class="cardStyle1"style="position: relative; overflow: hidden; border-radius: 8px; transition: box-shadow 0.3s ease, transform 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.02)';"
+          onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
           onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
             <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</h4>
               {% if b.id == 1 %}
