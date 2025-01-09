@@ -123,6 +123,15 @@
     </div>
   </div>
 </section>
+<script>
+  // Adjust progress bar width dynamically based on score
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".progress-bar").forEach(function (bar) {
+      const score = bar.getAttribute("data-score");
+      bar.style.width = `${score}%`;
+    });
+  });
+</script>
 
 
 
