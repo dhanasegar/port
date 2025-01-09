@@ -28,17 +28,14 @@ class UserProfile(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
-    cv = models.FileField(blank=True, null=True, upload_to="cv")  # For admin upload
-    cv_binary = models.BinaryField(blank=True, null=True, editable=False)  # For binary storage
+    cv = models.FileField(upload_to='resumes/', null=True, blank=True)  # Regular FileField
+    cv_binary = models.BinaryField(null=True, blank=True)  # To store the binary data of the CV
 
     def save(self, *args, **kwargs):
-        if self.cv:
-            with self.cv.open('rb') as file:
-                self.cv_binary = file.read()
-        super(UserProfile, self).save(*args, **kwargs)
-
-    def __str__(self):
-        return f'{self.user.first_name} {self.user.last_name}'
+        if self.cv and not self.cv_binary:  # If there is a CV uploaded and no binary data yet
+            self.cv_binary = self.cv.read()  # Store the binary content
+            self.cv.close()  # Close the file after reading it
+        super(UserProfile, self).save(*args, **kwargs)  # Save the object
 
 
 
@@ -165,3 +162,5 @@ class Resume(models.Model):
     name = models.CharField(max_length=255)  # For descriptive purposes
     file = models.BinaryField()  # To store the file in binary format
     uploaded_at = models.DateTimeField(auto_now_add=True)
+
+
