@@ -13,7 +13,9 @@ from . models import (
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-	list_display = ('id', 'user')
+    list_display = ('id', 'user')
+    fields = ('user', 'title', 'bio', 'skills', 'cv')  # Include the FileField for admin upload
+
 
 @admin.register(ContactProfile)
 class ContactAdmin(admin.ModelAdmin):
@@ -45,3 +47,7 @@ class CertificateAdmin(admin.ModelAdmin):
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('id','name','score')
+    from django.contrib import admin
+from .models import UserProfile
+
+   

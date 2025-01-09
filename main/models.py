@@ -19,21 +19,27 @@ class Skill(models.Model):
         
         return self.name
 
-class UserProfile(models.Model): 
-
+class UserProfile(models.Model):
     class Meta:
         verbose_name_plural = 'User Profiles'
         verbose_name = 'User Profile'
-    # avatar = models.URLField(blank=True, null=True)
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # avatar= image = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
-    cv = models.FileField(blank=True, null=True, upload_to="cv")
+    cv = models.FileField(blank=True, null=True, upload_to="cv")  # For admin upload
+    cv_binary = models.BinaryField(blank=True, null=True, editable=False)  # For binary storage
+
+    def save(self, *args, **kwargs):
+        if self.cv:
+            with self.cv.open('rb') as file:
+                self.cv_binary = file.read()
+        super(UserProfile, self).save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
+
 
 
 class ContactProfile(models.Model):
@@ -68,26 +74,6 @@ class Testimonial(models.Model):
         return self.name
 
 
-
-# class Testimonial(models.Model):
-
-#     class Meta:
-#         verbose_name_plural = 'Testimonials'
-#         verbose_name = 'Testimonial'
-#         ordering = ["id"]
-
-#     thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
-#     thumbnail_url = models.URLField(blank=True, null=True)  # Add a field for external image URLs
-#     name = models.CharField(max_length=200, blank=True, null=True)
-#     role = models.CharField(max_length=200, blank=True, null=True)
-#     quote = models.CharField(max_length=500, blank=True, null=True)
-#     is_active = models.BooleanField(default=True)
-
-#     def __str__(self):
-#         return self.name
-
-
-
 class Media(models.Model):
 
     class Meta:
@@ -117,7 +103,6 @@ class Portfolio(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
-    # image = models.ImageField(blank=True, null=True, upload_to="portfolio")
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -176,3 +161,7 @@ class Certificate(models.Model):
     def __str__(self):
         return self.name
 
+class Resume(models.Model):
+    name = models.CharField(max_length=255)  # For descriptive purposes
+    file = models.BinaryField()  # To store the file in binary format
+    uploaded_at = models.DateTimeField(auto_now_add=True)

@@ -29,7 +29,9 @@
             <div class="bannerBtnCol mt-4">
               <div class="row justify-content-center">
                 <div class="col-auto">
-                  <a download href="{{ me.userprofile.cv.url }}" class="btn btnPrimary">Download Resume</a>
+                  {% comment %} <a download href="{{ me.userprofile.cv.url }}" class="btn btnPrimary">Download Resume</a> {% endcomment %}
+                  <a href="{% url 'download_resume' user_profile.user.id %}">Download Resume</a>
+
                 </div>
                 <div class="col-auto">
                   <a href="{% url 'main:contact' %}" class="btn btnOutline">Contact</a>
