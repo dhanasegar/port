@@ -28,14 +28,14 @@ class UserProfile(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
-    cv = models.FileField(upload_to='resumes/', null=True, blank=True)  # Regular FileField
-    cv_binary = models.BinaryField(null=True, blank=True)  # To store the binary data of the CV
+    cv = models.FileField(upload_to='resumes/', null=True, blank=True)  
+    cv_binary = models.BinaryField(null=True, blank=True)  
 
     def save(self, *args, **kwargs):
-        if self.cv and not self.cv_binary:  # If there is a CV uploaded and no binary data yet
-            self.cv_binary = self.cv.read()  # Store the binary content
-            self.cv.close()  # Close the file after reading it
-        super(UserProfile, self).save(*args, **kwargs)  # Save the object
+        if self.cv and not self.cv_binary:  
+            self.cv_binary = self.cv.read()  
+            self.cv.close()  
+        super(UserProfile, self).save(*args, **kwargs)  
 
 
 

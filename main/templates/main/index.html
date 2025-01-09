@@ -284,7 +284,7 @@
         {% if b.is_active %}
         <div class="col-lg-6">
           <div class="cardStyle1">
-            <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</a></h4>
+            <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</h4>
               {% if b.id == 1 %}
                   <img src="https://img.freepik.com/premium-photo/soil-moisture-probes-p-different-depths-provide-data-precise-irrigation-scheduling_216520-133497.jpg" alt="Testimonial Image">
               {% elif b.id == 2 %}
@@ -309,17 +309,16 @@
                   <img src='https://file.forms.app/sitefile/how-to-create-an-online-quiz-with-formsapp-cover.jpg' alt="Testimonial Image">
               {% elif b.id == 12 %}
                   <img src='https://www.shutterstock.com/image-vector/quiz-tag-neon-light-frame-260nw-2451429525.jpg' alt="Testimonial Image">
-
-                  
               {% else %}
                   <!-- Default image if no specific URL is defined -->
                   <img src="{% static 'https://lh4.googleusercontent.com/proxy/Jj761_r0ymMnffICBUju4nrg7xeJmo5Jrwb7sfccQ4pSMeL9sMaxCY_aKg8mmM-JsbiLB1oknWV4l0MXy8g1UZEutQd9RKVUFszjHYVABI7ju73M36tBvvTBb9giWmCwc-oCAcR5dSopI-duf_8xb0A7asTQcDqc1HuvnBq_2M0XoZ8g1LzS' %}" alt="Default Testimonial Image">
               {% endif %}
-            <ul class="cardOptionCol">
+            {% comment %} <ul class="cardOptionCol">
               <li>{{ b.timestamp.date }}</li>
               <li>{{ b.author }}</li>
             </ul>
-            <p>{{ b.description }}</p>
+            <p>{{ b.description }}</p> {% endcomment %}
+          </a>
           </div>
         </div>
         {% endif %}
