@@ -10,6 +10,35 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
             <title>{% block title %}Portfolio Base{%endblock %}</title>
+            <style>
+              @keyframes typing {
+                from {
+                  max-width: 0;
+                }
+                to {
+                  max-width: 100%;
+                }
+              }
+              @keyframes blink {
+                from,
+                to {
+                  border-right-color: transparent;
+                }
+                50% {
+                  border-right-color: black;
+                }
+              }
+              @keyframes fadeInUp {
+                from {
+                  opacity: 0;
+                  transform: translateY(20px);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+            </style>
             <meta name="author" content="Did Coding Limited & James Granger Design">
             <link rel="canonical" href="{{request.path}}"/>
             <link rel="home" href="{% url 'main:home' %}"/>

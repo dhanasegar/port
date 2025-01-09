@@ -13,7 +13,7 @@
   <div class="bannerSection">
     <div class="container">
       <div class="row g-4 g-md-3 align-items-center">
-        
+
         <!-- Center the User Image -->
         <div class="col-md-12 text-center" style="display: flex; justify-content: center; align-items: center;">
           <div class="bannerUserImg">
@@ -25,17 +25,34 @@
         <div class="col-md-12 text-center">
           <div class="bannerContent">
             <br>
-            
+
             <!-- Animated Heading -->
-            <h1 class="xlTitle pb-3 animated-heading">
+            <h1 class="xlTitle pb-3" 
+                style="
+                  font-size: 2.5rem; 
+                  font-weight: bold; 
+                  background: conic-gradient(#553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a); 
+                  -webkit-background-clip: text; 
+                  -webkit-text-fill-color: transparent; 
+                  white-space: nowrap; 
+                  overflow: hidden; 
+                  display: inline-block; 
+                  max-width: 0; 
+                  animation: typing 3s steps(30, end), blink 0.7s step-end infinite;">
               Hello, It’s {{ me.first_name|title }}, <br> And I'm a {{ me.userprofile.title }}
             </h1>
-            
+
             <!-- Animated Paragraph -->
-            <p class="bio-text animated-paragraph" style="text-align: justify;">
+            <p class="bio-text" 
+               style="
+                 text-align: justify; 
+                 opacity: 0; 
+                 transform: translateY(20px); 
+                 animation: fadeInUp 1.5s ease-out forwards; 
+                 animation-delay: 3.5s;">
               {{ me.userprofile.bio }}
             </p>
-            
+
             <div class="bannerBtnCol mt-4">
               <div class="row justify-content-center">
                 <div class="col-auto">
@@ -55,6 +72,7 @@
     </div>
   </div>
 </section>
+
 
 
 
