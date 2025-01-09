@@ -23,7 +23,7 @@
         <div class="col-md-12 text-center">
           <div class="bannerContent">
             <br>
-            <h1 class="xlTitle pb-3"font-family: 'Roboto', sans-serif;>Hi, I’m {{ me.first_name|title }}, <br> A {{ me.userprofile.title }}</h1>
+            <h1 class="xlTitle pb-3"font-family: 'Regular 400';>Hi, I’m {{ me.first_name|title }}, <br> A {{ me.userprofile.title }}</h1>
             <!-- Ensure the paragraph is justified -->
             <p class="bio-text" style="text-align: justify;">{{ me.userprofile.bio }}</p>
             <div class="bannerBtnCol mt-4">
@@ -284,12 +284,19 @@
         {% for b in blogs %}
         {% if b.is_active %}
         <div class="col-lg-6">
-          <div class="cardStyle1">
+          <div class="cardStyle1"style="position: relative; overflow: hidden; border-radius: 8px; transition: box-shadow 0.3s ease, transform 0.3s ease; cursor: pointer;"
+          onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.2)'; this.style.transform='scale(1.02)';"
+          onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
             <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</h4>
               {% if b.id == 1 %}
-                  <img src="https://img.freepik.com/premium-photo/soil-moisture-probes-p-different-depths-provide-data-precise-irrigation-scheduling_216520-133497.jpg" alt="Testimonial Image">
+                  <img src="https://img.freepik.com/premium-photo/soil-moisture-probes-p-different-depths-provide-data-precise-irrigation-scheduling_216520-133497.jpg" alt="Testimonial Image" style="width: 100%; height: auto; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.1)';"
+                  onmouseout="this.style.transform='scale(1)';">
+                  
               {% elif b.id == 2 %}
-                  <img src="https://media.gettyimages.com/id/2148123501/photo/big-data-structure-blocks-concept.jpg?s=612x612&w=0&k=20&c=PlEqZm4p-LB6Y6WbVNJigy7LyM9uxZVGO67rC_XI0a4=" alt="Testimonial Image">
+                  <img src="https://media.gettyimages.com/id/2148123501/photo/big-data-structure-blocks-concept.jpg?s=612x612&w=0&k=20&c=PlEqZm4p-LB6Y6WbVNJigy7LyM9uxZVGO67rC_XI0a4=" alt="Testimonial Image" style="width: 100%; height: auto; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.1)';"
+                  onmouseout="this.style.transform='scale(1)';">
               {% elif b.id == 3 %}
                   <img src="https://blog.getmanifest.ai/content/images/2024/02/blog-covers--20-.png" alt="Testimonial Image">
               {% elif b.id == 4 %}
