@@ -113,6 +113,7 @@ from pathlib import Path
 import os
 import dj_database_url
 from dotenv import load_dotenv
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -177,8 +178,11 @@ WSGI_APPLICATION = 'resume_demo.wsgi.application'
 
 # Database configuration
 database_url = os.environ.get("DATABASES_URL")
+# DATABASES = {
+#     'default': dj_database_url.parse(database_url)  # Fetches the DB URL from environment variables
+# }
 DATABASES = {
-    'default': dj_database_url.parse(database_url)  # Fetches the DB URL from environment variables
+    'default': dj_database_url.parse("postgresql://resume_demo_user:qP6mhSIO2FGD1mWVNDuL2Y5kmVPBt00m@dpg-ctmp3ejv2p9s73fdoq2g-a.oregon-postgres.render.com/resume_demo")
 }
 
 # Password validation
