@@ -1,4 +1,58 @@
 /* Global styles */
+
+.animated-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: conic-gradient(#553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 0;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    max-width: 0;
+  }
+  to {
+    max-width: 100%;
+  }
+}
+
+/* Cursor blink animation */
+@keyframes blink {
+  from,
+  to {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: black;
+  }
+}
+
+/* Paragraph fade-in animation */
+.animated-paragraph {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 3.5s; /* Start after heading animation */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

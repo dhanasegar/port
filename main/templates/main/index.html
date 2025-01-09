@@ -11,36 +11,46 @@
 {% block content %}
 <section>
   <div class="bannerSection">
-    <div class="container" >
+    <div class="container">
       <div class="row g-4 g-md-3 align-items-center">
+        
         <!-- Center the User Image -->
-        <div class="col-md-12 text-center"style="display: flex; justify-content: center; align-items: center; height: ">
+        <div class="col-md-12 text-center" style="display: flex; justify-content: center; align-items: center;">
           <div class="bannerUserImg">
             <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px">
           </div>
         </div>
+
         <!-- Center the Banner Content -->
         <div class="col-md-12 text-center">
           <div class="bannerContent">
             <br>
-            <h1 class="xlTitle pb-3"font-family: 'Regular 400';>Hi, I’m {{ me.first_name|title }}, <br> A {{ me.userprofile.title }}</h1>
-            <!-- Ensure the paragraph is justified -->
-            <p class="bio-text" style="text-align: justify;">{{ me.userprofile.bio }}</p>
+            
+            <!-- Animated Heading -->
+            <h1 class="xlTitle pb-3 animated-heading">
+              Hello, It’s {{ me.first_name|title }}, <br> And I'm a {{ me.userprofile.title }}
+            </h1>
+            
+            <!-- Animated Paragraph -->
+            <p class="bio-text animated-paragraph" style="text-align: justify;">
+              {{ me.userprofile.bio }}
+            </p>
+            
             <div class="bannerBtnCol mt-4">
               <div class="row justify-content-center">
                 <div class="col-auto">
                   {% comment %} <a download href="{{ me.userprofile.cv.url }}" class="btn btnPrimary">Download Resume</a> {% endcomment %}
-                  <a href="{% url 'main:download_resume' user_id=me.id %}"class="btn btnPrimary">Download Resume</a>
-
-
+                  <a href="{% url 'main:download_resume' user_id=me.id %}" class="btn btnPrimary">Download Resume</a>
                 </div>
                 <div class="col-auto">
                   <a href="{% url 'main:contact' %}" class="btn btnOutline">Contact</a>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -100,7 +110,7 @@
                   <div class="progress progressStyle" style="background-color: #e0e0e0; height: 20px;">
                     <div class="progress-bar" 
                          role="progressbar" 
-                         style="background-color: rgb(195, 0, 255); height: 100%; width: 0; animation: fillBar 1.5s ease forwards;"
+                         style="background-color: rgb(159, 4, 206); height: 100%; width: 0; animation: fillBar 5.5s ease forwards;"
                          aria-valuenow="{{ sk.score }}" 
                          aria-valuemin="0" 
                          aria-valuemax="100"
