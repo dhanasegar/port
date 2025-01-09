@@ -68,10 +68,11 @@
                   <div class="progress progressStyle" style="background-color: #e0e0e0; height: 20px;">
                     <div class="progress-bar" 
                          role="progressbar" 
-                         style="width: {{ sk.score }}%; background-color:rgb(195, 0, 255);" 
+                         style="width: 0%; background-color:rgb(195, 0, 255); height: 100%; transition: width 1.5s ease;"
                          aria-valuenow="{{ sk.score }}" 
                          aria-valuemin="0" 
-                         aria-valuemax="100">
+                         aria-valuemax="100"
+                         onmouseover="this.style.width='{{ sk.score }}%';">
                     </div>
                   </div>
                 </div>
@@ -99,10 +100,11 @@
                   <div class="progress progressStyle" style="background-color: #e0e0e0; height: 20px;">
                     <div class="progress-bar" 
                          role="progressbar" 
-                         style="width: {{ sk.score }}%; background-color:rgb(195, 0, 255);" 
+                         style="width: 0%; background-color:rgb(195, 0, 255); height: 100%; transition: width 1.5s ease;"
                          aria-valuenow="{{ sk.score }}" 
                          aria-valuemin="0" 
-                         aria-valuemax="100">
+                         aria-valuemax="100"
+                         onmouseover="this.style.width='{{ sk.score }}%';">
                     </div>
                   </div>
                 </div>
