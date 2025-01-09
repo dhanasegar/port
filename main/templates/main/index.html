@@ -27,28 +27,9 @@
             <br>
 
             <!-- Animated Heading -->
-            <h1 class="xlTitle" style="
-            font-size: 2rem;
-            background: conic-gradient(#553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a); 
-            color: transparent; /* Set text color to transparent */
-            background-clip: text;
-            -webkit-background-clip: text; /* Required for webkit-based browsers */
-            display: inline-block;
-            overflow: hidden;
-            border-right: 2px solid black;
-            white-space: nowrap;
-            animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
-          ">
-            <!-- Animated Paragraph -->
-            <p class="bio-text" 
-               style="
-                 text-align: justify; 
-                 opacity: 0; 
-                 transform: translateY(20px); 
-                 animation: fadeInUp 1.5s ease-out forwards; 
-                 animation-delay: 3.5s;">
-              {{ me.userprofile.bio }}
-            </p>
+            <h1 class="xlTitle pb-3"conic-gradient(#553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a);>Hello, It’s {{ me.first_name|title }}, <br> And I'm a {{ me.userprofile.title }}</h1>
+            <!-- Ensure the paragraph is justified -->
+            <p class="bio-text" style="text-align: justify;">{{ me.userprofile.bio }}</p>
 
             <div class="bannerBtnCol mt-4">
               <div class="row justify-content-center">
