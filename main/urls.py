@@ -11,5 +11,6 @@ urlpatterns = [
     path('portfolio/<slug:slug>',views.PortfolioDetailView.as_view(),name='portfolio'),
     path('blog/',views.BlogView.as_view(),name='blogs'),
     path('blog/<slug:slug>',views.BlogDetailView.as_view(),name='blog'),
-    path('download/', views.download_resume, name='download_resume'),
+    path('download/<int:user_id>/', views.download_resume, name='download_resume'),
+
 ]
