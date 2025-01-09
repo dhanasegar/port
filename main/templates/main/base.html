@@ -39,6 +39,14 @@
                 }
               }
             </style>
+            <style>
+              @media (max-width: 768px) {
+                h1.xlTitle {
+                  font-size: 1.5rem; /* Smaller font size for mobile */
+                  white-space: normal; /* Allow wrapping */
+                }
+              }
+            </style>
             <meta name="author" content="Did Coding Limited & James Granger Design">
             <link rel="canonical" href="{{request.path}}"/>
             <link rel="home" href="{% url 'main:home' %}"/>
