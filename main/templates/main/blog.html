@@ -33,7 +33,7 @@
           <div class="col-md-6 pColMain">
             <div class="pCol position-relative">
               <a href="{% url 'main:blog' slug=obj.slug %}">
-    
+                <div class="image-wrapper">
                   <div class="cardStyle1"style="position: relative; overflow: hidden; border-radius: 8px; transition: box-shadow 0.3s ease, transform 0.3s ease; cursor: pointer;"
                   onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
                   onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
@@ -140,7 +140,7 @@
             </div>
           </div>
           {% endfor %}
-       
+        </div>
       </div>
     </div>
   </div>
