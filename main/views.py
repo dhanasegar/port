@@ -13,34 +13,40 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from .models import UserProfile
 
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 class IndexView(generic.TemplateView):
     template_name = "main/index.html"
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+        userprofile = None
+
+        # Fetch the UserProfile instance if the user is logged in
+        if self.request.user.is_authenticated:
+            try:
+                userprofile = UserProfile.objects.get(user=self.request.user)
+            except UserProfile.DoesNotExist:
+                pass  # Handle the case where a UserProfile does not exist
+
         testimonials = Testimonial.objects.filter(is_active=True)
         certificates = Certificate.objects.filter(is_active=True)
         blogs = Blog.objects.filter(is_active=True)
         portfolio = Portfolio.objects.filter(is_active=True)
-        
-        # List of external image URLs corresponding to the testimonials
-        external_urls = [
-                 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png',
-				'https://ouc.howard.edu/sites/ouc.howard.edu/files/styles/large/public/2024-06/howardu_clocktower_logo.png?itok=2BF477uO',
-				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Jhk8UKRvnSzsGESJKo2mbgwhVW3S1wvn4VO-Kn8&usqp=CAE&s',
-				'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/The_University_of_California_Davis.svg/800px-The_University_of_California_Davis.svg.png',
-				'https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp',
-				'https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp',
-				'https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp',
-				]
 
+     
+
+        context["userprofile"] = userprofile  # Add user profile to context
         context["testimonials"] = testimonials
         context["certificates"] = certificates
         context["blogs"] = blogs
         context["portfolio"] = portfolio
-        context["external_urls"] = external_urls  # Pass external image URLs to the template
+       
 
         return context
 
