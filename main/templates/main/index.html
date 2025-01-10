@@ -296,12 +296,12 @@
           <a href="{% url 'main:blogs' %}" class="simpleLink">View all</a>
         </div>
       </div>
-      <div class="row g-3">
+      <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
        
         {% for b in blogs %}
         {% if b.is_active %}
         <div class="col-lg-6">
-          <div class="pCol position-relative">
+        
           <div class="cardStyle1"style="position: relative; overflow: hidden; border-radius: 8px; transition: box-shadow 0.3s ease, transform 0.3s ease; cursor: pointer;"
           onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
           onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
@@ -398,7 +398,7 @@
       
         {% endif %}
         {% endfor %}
-      </div>
+     
       </div>
     </div>
   </div>
