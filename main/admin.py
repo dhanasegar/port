@@ -85,74 +85,74 @@ from .models import (
 )
 
 
-# UserProfile Admin form
-class UserProfileAdminForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = '__all__'
-
-    def clean_cv(self):
-        cv = self.cleaned_data.get('cv')
-        if cv:
-            # Convert the file to binary data
-            self.instance.cv_binary = cv.read()  # Store the binary content
-        # Close the file after reading it
-        return cv
-
-
-# UserProfile Admin configuration
+# Customizing the UserProfile Admin
 class UserProfileAdmin(admin.ModelAdmin):
-    form = UserProfileAdminForm
-    list_display = ('id', 'user',)
-    fields = ('user', 'title', 'bio', 'skills', 'cv','avatar',)  # Include the FileField for admin upload
+    list_display = ['user', 'avatar_preview',]
+    search_fields = ['user__username', 'title']
+
+    def avatar_preview(self, obj):
+        if obj.avatar:
+            return f'<img src="{obj.avatar}" width="50" height="50"/>'
+        return "No Avatar"
+    avatar_preview.allow_tags = True
+    avatar_preview.short_description = 'Avatar Preview'
 
 
-# Register UserProfileAdmin to the admin site
-admin.site.register(UserProfile, UserProfileAdmin)
-
-
-# ContactProfile Admin configuration
-@admin.register(ContactProfile)
-class ContactAdmin(admin.ModelAdmin):
-    list_display = ('id', 'timestamp', 'name',)
-    search_fields = ('name', 'email',)
-    list_filter = ('timestamp',)
-
-
-# Testimonial Admin configuration
-@admin.register(Testimonial)
-class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'is_active','thumbnail_binary')
-
-
-# Media Admin configuration
-@admin.register(Media)
+# Customizing the Media Admin
 class MediaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name',)
+    list_display = ['name', 'image_preview', 'is_image']
+    search_fields = ['name', 'url']
+
+    def image_preview(self, obj):
+        if obj.image:
+            return f'<img src="{obj.image}" width="50" height="50"/>'
+        return "No Image"
+    image_preview.allow_tags = True
+    image_preview.short_description = 'Image Preview'
 
 
-# Portfolio Admin configuration
-@admin.register(Portfolio)
+# Customizing the Portfolio Admin
 class PortfolioAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'is_active',)
-    readonly_fields = ('slug', 'get_image_base64')  # Make slug and image display readonly
+    list_display = ['name', 'image_preview', 'is_active']
+    search_fields = ['name', 'description']
+
+    def image_preview(self, obj):
+        if obj.image:
+            return f'<img src="{obj.image}" width="50" height="50"/>'
+        return "No Image"
+    image_preview.allow_tags = True
+    image_preview.short_description = 'Image Preview'
 
 
-# Blog Admin configuration
-@admin.register(Blog)
+# Customizing the Blog Admin
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'is_active',)
-    readonly_fields = ('slug', 'get_image_base64')  # Make slug and image display readonly
+    list_display = ['name', 'image_preview', 'is_active']
+    search_fields = ['name', 'description']
+
+    def image_preview(self, obj):
+        if obj.image:
+            return f'<img src="{obj.image}" width="50" height="50"/>'
+        return "No Image"
+    image_preview.allow_tags = True
+    image_preview.short_description = 'Image Preview'
 
 
-# Certificate Admin configuration
-@admin.register(Certificate)
-class CertificateAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name',)
+# Customizing the Testimonial Admin
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = ['name', 'thumbnail_preview', 'is_active']
+    search_fields = ['name', 'quote']
+
+    def thumbnail_preview(self, obj):
+        if obj.thumbnail:
+            return f'<img src="{obj.thumbnail}" width="50" height="50"/>'
+        return "No Thumbnail"
+    thumbnail_preview.allow_tags = True
+    thumbnail_preview.short_description = 'Thumbnail Preview'
 
 
-# Skill Admin configuration
-@admin.register(Skill)
-class SkillAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'score',)
-
+# Registering the Admin Models
+admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.register(Media, MediaAdmin)
+admin.site.register(Portfolio, PortfolioAdmin)
+admin.site.register(Blog, BlogAdmin)
+admin.site.register(Testimonial, TestimonialAdmin)

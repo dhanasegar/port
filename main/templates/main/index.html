@@ -17,9 +17,9 @@
         <!-- Center the User Image -->
         <div class="col-md-12 text-center" style="display: flex; justify-content: center; align-items: center;">
           <div class="bannerUserImg">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px">
+            {% comment %} <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px"> {% endcomment %}
             {% if user_profile.avatar_binary %}
-            <img src="data:image/png;base64,{{ user_profile.get_avatar_base64 }}" alt="Avatar" />
+            <img src="{{ user_profile.avatar }}" alt="User Avatar">
             {% else %}
                 <p>No Avatar</p>
             {% endif %}
@@ -205,7 +205,8 @@
               <div class="portfolioImgCol">
                 <a href="{% url 'main:portfolio' slug=p.slug %}">
                   <div class="academic-container">
-                    {% if p.image_url %}
+                    <img src="{{ testimonial.thumbnail }}" alt="Testimonial Thumbnail">
+                    {% comment %} {% if p.image_url %}
                       <!-- If there's an external image URL, use it -->
                       <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'alt="Academic Image" class="logo" width="200px">
                     {% elif p.image %}
@@ -215,7 +216,7 @@
                       <!-- Default image if no image is available -->
                       <img src='https://static.vecteezy.com/system/resources/thumbnails/044/280/984/small_2x/stack-of-books-on-a-brown-background-concept-for-world-book-day-photo.jpg' alt="Default Logo" class="logo" width="200px">
                     {% endif %}
-                  </div>
+                  </div> {% endcomment %}
                 </a>
               </div>
             </div>
@@ -387,7 +388,7 @@
                   onmouseout="this.style.transform='scale(1)';">
               {% else %}
                   <!-- Default image if no specific URL is defined -->
-                  <img src="{% static 'https://lh4.googleusercontent.com/proxy/Jj761_r0ymMnffICBUju4nrg7xeJmo5Jrwb7sfccQ4pSMeL9sMaxCY_aKg8mmM-JsbiLB1oknWV4l0MXy8g1UZEutQd9RKVUFszjHYVABI7ju73M36tBvvTBb9giWmCwc-oCAcR5dSopI-duf_8xb0A7asTQcDqc1HuvnBq_2M0XoZ8g1LzS' %}" 
+                  <img src="{{ portfolio.image }}" alt="Portfolio Image"
                   alt="Default Testimonial Image"
                   style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
                   onmouseover="this.style.transform='scale(1.1)';"
