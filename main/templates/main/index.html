@@ -300,6 +300,7 @@
         {% for b in blogs %}
         {% if b.is_active %}
         <div class="col-lg-6">
+          <div class="image-wrapper">
           <div class="cardStyle1"style="position: relative; overflow: hidden; border-radius: 8px; transition: box-shadow 0.3s ease, transform 0.3s ease; cursor: pointer;"
           onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
           onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
@@ -393,6 +394,7 @@
           </a>
           </div>
         </div>
+      </div>
         {% endif %}
         {% endfor %}
       </div>
