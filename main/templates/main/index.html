@@ -296,110 +296,41 @@
         </div>
       </div>
       <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
-       
         {% for b in blogs %}
         {% if b.is_active %}
-        <div class="col-lg-6">
-        
-          <div class="cardStyle1"style="position: relative; overflow: hidden; border-radius: 8px; transition: box-shadow 0.3s ease, transform 0.3s ease; cursor: pointer;"
-          onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
-          onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
-            <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</h4>
-              {% if b.id == 1 %}
-                  <img src="https://img.freepik.com/premium-photo/soil-moisture-probes-p-different-depths-provide-data-precise-irrigation-scheduling_216520-133497.jpg" 
-                  alt="Testimonial Image" 
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-                  
-              {% elif b.id == 2 %}
-                  <img src="https://media.gettyimages.com/id/2148123501/photo/big-data-structure-blocks-concept.jpg?s=612x612&w=0&k=20&c=PlEqZm4p-LB6Y6WbVNJigy7LyM9uxZVGO67rC_XI0a4=" 
-                  alt="Testimonial Image" 
-                  style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 3 %}
-                  <img src="https://blog.getmanifest.ai/content/images/2024/02/blog-covers--20-.png" 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 4 %}
-                  <img src='https://www.leadsquared.com/wp-content/uploads/2022/09/Top-EdTech-companies-in-United-States-1.png' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 5 %}
-                  <img src='https://miro.medium.com/v2/resize:fit:1400/0*p4K80YljASGjDo9p' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 6 %}
-                  <img src='https://png.pngtree.com/thumb_back/fh260/background/20230716/pngtree-3d-rendering-of-online-food-ordering-and-delivery-app-image_3877884.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 7 %}
-                  <img src='	https://www.winsavvy.com/wp-content/uploads/2024/07/Predictive-Analytics-1.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 8 %}
-                  <img src=	'https://www.mirrorfly.com/blog/wp-content/uploads/2022/06/secure-chat-messaging.webp' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 9 %}
-                  <img src='https://img.freepik.com/premium-psd/vegetable-frui…cial-media-instagram-cover-template_677506-33.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 10 %}
-                  <img src='https://www.lsg.com/Content/img/blogs/lsg-blog-jan-2020-1.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 11 %}
-                  <img src='https://file.forms.app/sitefile/how-to-create-an-online-quiz-with-formsapp-cover.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 12 %}
-                  <img src='https://www.shutterstock.com/image-vector/quiz-tag-neon-light-frame-260nw-2451429525.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% else %}
-                  <!-- Default image if no specific URL is defined -->
-                  <img src="{% static 'https://lh4.googleusercontent.com/proxy/Jj761_r0ymMnffICBUju4nrg7xeJmo5Jrwb7sfccQ4pSMeL9sMaxCY_aKg8mmM-JsbiLB1oknWV4l0MXy8g1UZEutQd9RKVUFszjHYVABI7ju73M36tBvvTBb9giWmCwc-oCAcR5dSopI-duf_8xb0A7asTQcDqc1HuvnBq_2M0XoZ8g1LzS' %}" 
-                  alt="Default Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% endif %}
-            {% comment %} <ul class="cardOptionCol">
-              <li>{{ b.timestamp.date }}</li>
-              <li>{{ b.author }}</li>
-            </ul>
-            <p>{{ b.description }}</p> {% endcomment %}
-          </a>
+        <div class="col-6 col-md-6">
+          <div class="cardStyle1" style="
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 8px; 
+            transition: box-shadow 0.3s ease, transform 0.3s ease; 
+            cursor: pointer;"
+            onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
+            onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
+            
+            <h4 class="mdTitle cs1Title">
+              <a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</a>
+            </h4>
+            {% if b.id == 1 %}
+              <img src="https://img.freepik.com/premium-photo/soil-moisture-probes-p-different-depths-provide-data-precise-irrigation-scheduling_216520-133497.jpg" 
+              alt="Testimonial Image" 
+              style="width: 100%; height: auto; border-radius: 8px; transition: transform 0.3s ease;"
+              onmouseover="this.style.transform='scale(1.1)';"
+              onmouseout="this.style.transform='scale(1)';">
+            {% elif b.id == 2 %}
+              <img src="https://media.gettyimages.com/id/2148123501/photo/big-data-structure-blocks-concept.jpg?s=612x612&w=0&k=20&c=PlEqZm4p-LB6Y6WbVNJigy7LyM9uxZVGO67rC_XI0a4=" 
+              alt="Testimonial Image" 
+              style="width: 100%; height: auto; border-radius: 8px; transition: transform 0.3s ease;"
+              onmouseover="this.style.transform='scale(1.1)';"
+              onmouseout="this.style.transform='scale(1)';">
+            {% endif %}
           </div>
         </div>
-      
         {% endif %}
         {% endfor %}
-     
       </div>
     </div>
   </div>
 </section>
+
 {% endblock %}
