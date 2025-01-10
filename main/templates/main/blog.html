@@ -34,6 +34,9 @@
             <div class="pCol position-relative">
               <a href="{% url 'main:blog' slug=obj.slug %}">
                 <div class="image-wrapper">
+                  <div class="cardStyle1"style="position: relative; overflow: hidden; border-radius: 8px; transition: box-shadow 0.3s ease, transform 0.3s ease; cursor: pointer;"
+                  onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
+                  onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
                   {% comment %} <img src="https://forte.com.tr/assets/imgs/blog/80.webp" alt="Academic Image" class="logo" width="100%"> {% endcomment %}
                   {% if obj.id == 1 %}
                       <img src="https://img.freepik.com/premium-photo/soil-moisture-probes-p-different-depths-provide-data-precise-irrigation-scheduling_216520-133497.jpg" 
@@ -94,28 +97,28 @@
                   {% elif obj.id == 9 %}
                       <img src='https://img.freepik.com/premium-psd/vegetable-frui…cial-media-instagram-cover-template_677506-33.jpg' 
                       alt="Testimonial Image"
-                      style="width: 100%; height: auto; transition: transform 0.3s ease;"
+                      style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
                       onmouseover="this.style.transform='scale(1.1)';"
                       onmouseout="this.style.transform='scale(1)';">
 
                   {% elif obj.id == 10 %}
                       <img src='https://www.lsg.com/Content/img/blogs/lsg-blog-jan-2020-1.jpg'
                        alt="Testimonial Image"
-                       style="width: 100%; height: auto; transition: transform 0.3s ease;"
+                       style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
                       onmouseover="this.style.transform='scale(1.1)';"
                       onmouseout="this.style.transform='scale(1)';">
 
                   {% elif obj.id == 11 %}
                       <img src='https://file.forms.app/sitefile/how-to-create-an-online-quiz-with-formsapp-cover.jpg' 
                       alt="Testimonial Image"
-                      style="width: 100%; height: auto; transition: transform 0.3s ease;"
+                      style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
                       onmouseover="this.style.transform='scale(1.1)';"
                       onmouseout="this.style.transform='scale(1)';">
                       
                   {% elif obj.id == 12 %}
                       <img src='https://www.shutterstock.com/image-vector/quiz-tag-neon-light-frame-260nw-2451429525.jpg' 
                       alt="Testimonial Image"
-                      style="width: 100%; height: auto; transition: transform 0.3s ease;"
+                      style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
                       onmouseover="this.style.transform='scale(1.1)';"
                       onmouseout="this.style.transform='scale(1)';">
 
@@ -124,13 +127,14 @@
                       <!-- Default image if no specific URL is defined -->
                       <img src="{% static 'https://lh4.googleusercontent.com/proxy/Jj761_r0ymMnffICBUju4nrg7xeJmo5Jrwb7sfccQ4pSMeL9sMaxCY_aKg8mmM-JsbiLB1oknWV4l0MXy8g1UZEutQd9RKVUFszjHYVABI7ju73M36tBvvTBb9giWmCwc-oCAcR5dSopI-duf_8xb0A7asTQcDqc1HuvnBq_2M0XoZ8g1LzS' %}" 
                       alt="Default Testimonial Image"
-                      style="width: 100%; height: auto; transition: transform 0.3s ease;"
+                      style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
                       onmouseover="this.style.transform='scale(1.1)';"
                       onmouseout="this.style.transform='scale(1)';">
                   {% endif %}
                   <div class="image-overlay">
                     <h4>{{ obj.name }}</h4>
                   </div>
+                </div>
                 </div>
               </a>
             </div>
