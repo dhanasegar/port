@@ -1,3 +1,76 @@
+# from django.contrib import admin
+# from django import forms
+# from .models import (
+#     UserProfile,
+#     ContactProfile,
+#     Testimonial,
+#     Media,
+#     Portfolio,
+#     Blog,
+#     Certificate,
+#     Skill
+# )
+
+# class UserProfileAdminForm(forms.ModelForm):
+#     class Meta:
+#         model = UserProfile
+#         fields = '__all__'
+
+#     def clean_cv(self):
+#         cv = self.cleaned_data.get('cv')
+#         if cv:
+#             # Convert the file to binary data
+#             self.instance.cv_binary = cv.read()  # Store the binary content
+#        # Close the file after reading it
+#         return cv
+    
+
+# class UserProfileAdmin(admin.ModelAdmin):
+#     form = UserProfileAdminForm
+#     list_display = ('id', 'user')
+#     fields = ('user', 'title', 'bio', 'skills', 'cv')  # Include the FileField for admin upload
+
+# # Registering UserProfileAdmin to the admin site
+# admin.site.register(UserProfile, UserProfileAdmin)
+
+
+# @admin.register(ContactProfile)
+# class ContactAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'timestamp', 'name',)
+#     search_fields = ('name', 'email',)
+#     list_filter = ('timestamp',)
+
+
+# @admin.register(Testimonial)
+# class TestimonialAdmin(admin.ModelAdmin):
+#     list_display = ('id','name','is_active')
+
+
+# @admin.register(Media)
+# class MediaAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'name')
+
+
+# @admin.register(Portfolio)
+# class PortfolioAdmin(admin.ModelAdmin):
+#     list_display = ('id','name','is_active')
+#     readonly_fields = ('slug',)
+
+
+# @admin.register(Blog)
+# class BlogAdmin(admin.ModelAdmin):
+#     list_display = ('id','name','is_active')
+#     readonly_fields = ('slug',)
+
+
+# @admin.register(Certificate)
+# class CertificateAdmin(admin.ModelAdmin):
+#     list_display = ('id','name')
+
+
+# @admin.register(Skill)
+# class SkillAdmin(admin.ModelAdmin):
+#     list_display = ('id','name','score')
 from django.contrib import admin
 from django import forms
 from .models import (
@@ -11,6 +84,8 @@ from .models import (
     Skill
 )
 
+
+# UserProfile Admin form
 class UserProfileAdminForm(forms.ModelForm):
     class Meta:
         model = UserProfile
@@ -21,19 +96,22 @@ class UserProfileAdminForm(forms.ModelForm):
         if cv:
             # Convert the file to binary data
             self.instance.cv_binary = cv.read()  # Store the binary content
-       # Close the file after reading it
+        # Close the file after reading it
         return cv
-    
 
+
+# UserProfile Admin configuration
 class UserProfileAdmin(admin.ModelAdmin):
     form = UserProfileAdminForm
-    list_display = ('id', 'user')
+    list_display = ('id', 'user', 'title', 'bio',)
     fields = ('user', 'title', 'bio', 'skills', 'cv')  # Include the FileField for admin upload
 
-# Registering UserProfileAdmin to the admin site
+
+# Register UserProfileAdmin to the admin site
 admin.site.register(UserProfile, UserProfileAdmin)
 
 
+# ContactProfile Admin configuration
 @admin.register(ContactProfile)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('id', 'timestamp', 'name',)
@@ -41,33 +119,40 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('timestamp',)
 
 
+# Testimonial Admin configuration
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ('id','name','is_active')
+    list_display = ('id', 'name', 'is_active',)
 
 
+# Media Admin configuration
 @admin.register(Media)
 class MediaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
+    list_display = ('id', 'name',)
 
 
+# Portfolio Admin configuration
 @admin.register(Portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
-    list_display = ('id','name','is_active')
-    readonly_fields = ('slug',)
+    list_display = ('id', 'name', 'is_active',)
+    readonly_fields = ('slug', 'get_image_base64')  # Make slug and image display readonly
 
 
+# Blog Admin configuration
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('id','name','is_active')
-    readonly_fields = ('slug',)
+    list_display = ('id', 'name', 'is_active',)
+    readonly_fields = ('slug', 'get_image_base64')  # Make slug and image display readonly
 
 
+# Certificate Admin configuration
 @admin.register(Certificate)
 class CertificateAdmin(admin.ModelAdmin):
-    list_display = ('id','name')
+    list_display = ('id', 'name',)
 
 
+# Skill Admin configuration
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('id','name','score')
+    list_display = ('id', 'name', 'score',)
+
