@@ -204,11 +204,11 @@ class UserProfile(models.Model):
         super(UserProfile, self).save(*args, **kwargs)
 
     def set_avatar(self, file_data):
-        self.avatar_binary = file_data.read()
+        self.avatar = file_data.read()
 
     def get_avatar_base64(self):
-        if self.avatar_binary:
-            return base64.b64encode(self.avatar_binary).decode('utf-8')
+        if self.avatar:
+            return base64.b64encode(self.avatar).decode('utf-8')
         return None
 
 
