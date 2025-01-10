@@ -47,6 +47,29 @@
                 }
               }
             </style>
+            <script>
+              document.addEventListener('DOMContentLoaded', () => {
+                const swiper = new Swiper('.testimonialSwiper', {
+                  // Enable autoplay
+                  autoplay: {
+                    delay: 3000, // Delay in ms between slides
+                    disableOnInteraction: false, // Continue autoplay after interaction
+                  },
+                  // Add navigation arrows
+                  navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  },
+                  // Enable loop mode
+                  loop: true,
+                });
+              });
+            </script>
+            <!-- SwiperJS CSS -->
+            <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+            <!-- SwiperJS JS -->
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            
             <meta name="author" content="Did Coding Limited & James Granger Design">
             <link rel="canonical" href="{{request.path}}"/>
             <link rel="home" href="{% url 'main:home' %}"/>
