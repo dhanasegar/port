@@ -18,8 +18,8 @@
         <div class="col-md-12 text-center" style="display: flex; justify-content: center; align-items: center;">
           <div class="bannerUserImg">
             {% comment %} <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px"> {% endcomment %}
-            {% if user_profile.avatar %}
-            <img src="{{ user_profile.avatar }}" alt="User Avatar">
+            {% if obj.avatar %}
+            <img src="{{ obj.avatar }}" alt="User Avatar">
             {% else %}
                 <p>No Avatar</p>
             {% endif %}
