@@ -120,6 +120,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load environment variables from a .env file if needed
 load_dotenv()
+LOGIN_REDIRECT_URL = '/'  # Redirect to home page after login
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
