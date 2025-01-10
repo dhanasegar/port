@@ -103,8 +103,8 @@ class UserProfileAdminForm(forms.ModelForm):
 # UserProfile Admin configuration
 class UserProfileAdmin(admin.ModelAdmin):
     form = UserProfileAdminForm
-    list_display = ('id', 'user', 'title', 'bio',)
-    fields = ('user', 'title', 'bio', 'skills', 'cv')  # Include the FileField for admin upload
+    list_display = ('id', 'user',)
+    fields = ('user', 'title', 'bio', 'skills', 'cv','avatar',)  # Include the FileField for admin upload
 
 
 # Register UserProfileAdmin to the admin site
@@ -122,7 +122,7 @@ class ContactAdmin(admin.ModelAdmin):
 # Testimonial Admin configuration
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'is_active',)
+    list_display = ('id', 'name', 'is_active','thumbnail_binary')
 
 
 # Media Admin configuration
