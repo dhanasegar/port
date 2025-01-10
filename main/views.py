@@ -19,6 +19,7 @@ from django.utils.decorators import method_decorator
 class IndexView(generic.TemplateView):
     template_name = "main/index.html"
 
+
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)

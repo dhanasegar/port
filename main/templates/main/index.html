@@ -18,11 +18,12 @@
         <div class="col-md-12 text-center" style="display: flex; justify-content: center; align-items: center;">
           <div class="bannerUserImg">
             {% comment %} <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px"> {% endcomment %}
-            {% if userprofile anduserprofile.avatar %}
-            <img src="{{userprofile.avatar }}" alt="User Avatar" class="logo" width="200px">
-            {% else %}
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px">
+            {% comment %} {% if userprofile.avatar %} {% endcomment %}
+                <img src="{{ userprofile.avatar }}" alt="User Avatar" class="logo" width="200px">
+            {% comment %} {% else %}
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px">
             {% endif %}
+             {% endcomment %}
         
           </div>
         </div>
@@ -33,7 +34,8 @@
             <br>
 
             <!-- Animated Heading -->
-            <h1 class="xlTitle pb-3"style="background: conic-gradient(#553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a);">Hello, It’s {{ me.first_name|title }}, <br> And I'm a {{ me.userprofile.title }}</h1>
+            <h1 class="xlTitle pb-3"style="background: conic-gradient(#553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a);">
+              Hello, It’s {{ me.first_name|title }}, <br> And I'm a {{ me.userprofile.title }}</h1>
             <!-- Ensure the paragraph is justified -->
             <p class="bio-text" style="text-align: justify;">{{ me.userprofile.bio }}</p>
 
