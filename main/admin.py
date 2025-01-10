@@ -84,18 +84,22 @@ from .models import (
     Skill
 )
 
+from django.utils.html import format_html
+from django.contrib import admin
 
-# Customizing the UserProfile Admin
+
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['id','user',]
+    list_display = ['id', 'user', 'title', 'avatar_preview']  # Added avatar_preview
     search_fields = ['user__username', 'title']
 
     def avatar_preview(self, obj):
         if obj.avatar:
-            return f'<img src="{obj.avatar}" width="50" height="50"/>'
+            return format_html('<img src="{}" width="50" height="50" style="border-radius: 50%;"/>', obj.avatar)
         return "No Avatar"
-    avatar_preview.allow_tags = True
     avatar_preview.short_description = 'Avatar Preview'
+
+# Register the model with the admin site
+
 
 
 # Customizing the Media Admin
@@ -172,3 +176,4 @@ admin.site.register(Media, MediaAdmin)
 admin.site.register(Portfolio, PortfolioAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Testimonial, TestimonialAdmin)
+
