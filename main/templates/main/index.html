@@ -19,7 +19,7 @@
           <div class="bannerUserImg">
             {% comment %} <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px"> {% endcomment %}
             {% if user_profile.avatar%}
-                <img src="{{ user_profile.avatar }}" alt="User Avatar">
+                <img src="{{me.userprofile.avatar.url}}"alt="User Avatar">
             {% else %}
                 <p>No Avatar</p>
             {% endif %}
@@ -205,7 +205,7 @@
               <div class="portfolioImgCol">
                 <a href="{% url 'main:portfolio' slug=p.slug %}">
                   <div class="academic-container">
-                    <img src="{{ Testimonial.thumbnail }}" alt="Testimonial Thumbnail">
+                    <img src="{{p.image.url}}" alt="Testimonial Thumbnail">
                     {% comment %} {% if p.image_url %}
                       <!-- If there's an external image URL, use it -->
                       <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'alt="Academic Image" class="logo" width="200px">
@@ -249,7 +249,8 @@
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="tImgCol">
-                        {% if t.id == 1 %}
+                        <img src="{{t.thumbnail.url}}" alt="Default Testimonial Image">
+                        {% comment %} {% if t.id == 1 %}
                         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png" alt="Testimonial Image">
                     {% elif t.id == 2 %}
                         <img src='https://ouc.howard.edu/sites/ouc.howard.edu/files/styles/large/public/2024-06/howardu_clocktower_logo.png?itok=2BF477uO' alt="Testimonial Image">
@@ -264,7 +265,7 @@
                     {% else %}
                         <!-- Default image if no specific URL is defined -->
                         <img src="{% static 'images/default-testimonial.jpg' %}" alt="Default Testimonial Image">
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                     </div>
                     </div>
                     <div class="col-sm">
