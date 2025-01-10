@@ -18,8 +18,8 @@
         <div class="col-md-12 text-center" style="display: flex; justify-content: center; align-items: center;">
           <div class="bannerUserImg">
             {% comment %} <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px"> {% endcomment %}
-            {% if obj.avatar %}
-            <img src="{{ obj.avatar }}" alt="User Avatar">
+            {% if user_profile.avatar %}
+            <img src="{{ user_profile.avatar }}" alt="User Avatar">
             {% else %}
                 <p>No Avatar</p>
             {% endif %}
@@ -315,7 +315,11 @@
           onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
           onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
             <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{ b.name }}</h4>
-              {% if b.id == 1 %}
+              <img src="{{b.image}}" alt="PROJECTS Image" style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
+              onmouseover="this.style.transform='scale(1.1)';"
+              onmouseout="this.style.transform='scale(1)';">
+
+              {% comment %} {% if b.id == 1 %}
                   <img src="https://img.freepik.com/premium-photo/soil-moisture-probes-p-different-depths-provide-data-precise-irrigation-scheduling_216520-133497.jpg" 
                   alt="Testimonial Image" 
                   style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
@@ -395,7 +399,7 @@
                   style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
                   onmouseover="this.style.transform='scale(1.1)';"
                   onmouseout="this.style.transform='scale(1)';">
-              {% endif %}
+              {% endif %} {% endcomment %}
           </a>
           </div>
         </div>
