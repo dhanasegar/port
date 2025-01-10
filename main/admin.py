@@ -87,7 +87,7 @@ from .models import (
 
 # Customizing the UserProfile Admin
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'avatar_preview',]
+    list_display = ['id','user',]
     search_fields = ['user__username', 'title']
 
     def avatar_preview(self, obj):

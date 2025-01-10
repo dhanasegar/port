@@ -188,15 +188,22 @@ class UserProfile(models.Model):
         verbose_name = 'User Profile'
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.URLField(max_length=200, blank=True, null=True)  # Avatar field as URL
+    avatar = models.URLField(max_length=500, blank=True, null=True)  # Increased max_length for flexibility
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
     cv = models.FileField(upload_to='resumes/', null=True, blank=True)
-    cv_binary = models.BinaryField(null=True, blank=True)
+    cv_binary = models.BinaryField(null=True, blank=True)  # Retained for potential use
+
+    def save(self, *args, **kwargs):
+        if self.cv and not self.cv_binary:
+            with self.cv.open('rb') as file:
+                self.cv_binary = file.read()
+        super(UserProfile, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.user.username
+        return self.user.username if self.user else "Unlinked Profile"
+
 
 
 class ContactProfile(models.Model):
