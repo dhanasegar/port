@@ -18,10 +18,10 @@
         <div class="col-md-12 text-center" style="display: flex; justify-content: center; align-items: center;">
           <div class="bannerUserImg">
             {% comment %} <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px"> {% endcomment %}
-            {% if user_profile.avatar %}
-            <img src="{{ user_profile.avatar }}" alt="User Avatar">
+            {% if mw.userprofile.avatar %}
+            <img src="{{ me.userprofile.avatar }}" alt="User Avatar">
             {% else %}
-                <p>No Avatar</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" width="200px">
             {% endif %}
         
           </div>
@@ -207,17 +207,7 @@
                 <a href="{% url 'main:portfolio' slug=p.slug %}">
                   <div class="academic-container">
                     <img src="{{p.image}}" alt="Testimonial Thumbnail">
-                    {% comment %} {% if p.image_url %}
-                      <!-- If there's an external image URL, use it -->
-                      <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'alt="Academic Image" class="logo" width="200px">
-                    {% elif p.image %}
-                      <!-- If there's an uploaded image, use it -->
-                      <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt="Academic Image" class="logo" width="200px">
-                    {% else %}
-                      <!-- Default image if no image is available -->
-                      <img src='https://static.vecteezy.com/system/resources/thumbnails/044/280/984/small_2x/stack-of-books-on-a-brown-background-concept-for-world-book-day-photo.jpg' alt="Default Logo" class="logo" width="200px">
-                    {% endif %}
-                  </div> {% endcomment %}
+                   
                 </a>
               </div>
             </div>
@@ -251,22 +241,7 @@
                     <div class="col-sm-auto">
                       <div class="tImgCol">
                         <img src="{{t.thumbnail}}" alt="Default Testimonial Image">
-                        {% comment %} {% if t.id == 1 %}
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/CSUNS.svg/800px-CSUNS.svg.png" alt="Testimonial Image">
-                    {% elif t.id == 2 %}
-                        <img src='https://ouc.howard.edu/sites/ouc.howard.edu/files/styles/large/public/2024-06/howardu_clocktower_logo.png?itok=2BF477uO' alt="Testimonial Image">
-                    {% elif t.id == 3 %}
-                        <img src=	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Jhk8UKRvnSzsGESJKo2mbgwhVW3S1wvn4VO-Kn8&usqp=CAE&s' alt="Testimonial Image">
-                    {% elif t.id == 4 %}
-                        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/The_University_of_California_Davis.svg/800px-The_University_of_California_Davis.svg.png' alt="Testimonial Image">
-                    {% elif t.id == 5 %}
-                        <img src='https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp' alt="Testimonial Image">
-                    {% elif t.id == 6 %}
-                        <img src='https://cdn.gathertales.com/images/stories/main/43872cd4-2552-404b-a920-eb990fe7728f.webp' alt="Testimonial Image">
-                    {% else %}
-                        <!-- Default image if no specific URL is defined -->
-                        <img src="{% static 'images/default-testimonial.jpg' %}" alt="Default Testimonial Image">
-                    {% endif %} {% endcomment %}
+                        
                     </div>
                     </div>
                     <div class="col-sm">
@@ -319,87 +294,6 @@
               onmouseover="this.style.transform='scale(1.1)';"
               onmouseout="this.style.transform='scale(1)';">
 
-              {% comment %} {% if b.id == 1 %}
-                  <img src="https://img.freepik.com/premium-photo/soil-moisture-probes-p-different-depths-provide-data-precise-irrigation-scheduling_216520-133497.jpg" 
-                  alt="Testimonial Image" 
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-                  
-              {% elif b.id == 2 %}
-                  <img src="https://media.gettyimages.com/id/2148123501/photo/big-data-structure-blocks-concept.jpg?s=612x612&w=0&k=20&c=PlEqZm4p-LB6Y6WbVNJigy7LyM9uxZVGO67rC_XI0a4=" 
-                  alt="Testimonial Image" 
-                  style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 3 %}
-                  <img src="https://blog.getmanifest.ai/content/images/2024/02/blog-covers--20-.png" 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 4 %}
-                  <img src='https://www.leadsquared.com/wp-content/uploads/2022/09/Top-EdTech-companies-in-United-States-1.png' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 5 %}
-                  <img src='https://miro.medium.com/v2/resize:fit:1400/0*p4K80YljASGjDo9p' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 6 %}
-                  <img src='https://png.pngtree.com/thumb_back/fh260/background/20230716/pngtree-3d-rendering-of-online-food-ordering-and-delivery-app-image_3877884.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 7 %}
-                  <img src='	https://www.winsavvy.com/wp-content/uploads/2024/07/Predictive-Analytics-1.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 8 %}
-                  <img src=	'https://www.mirrorfly.com/blog/wp-content/uploads/2022/06/secure-chat-messaging.webp' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 9 %}
-                  <img src='https://img.freepik.com/premium-psd/vegetable-frui…cial-media-instagram-cover-template_677506-33.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 10 %}
-                  <img src='https://www.lsg.com/Content/img/blogs/lsg-blog-jan-2020-1.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto; border-radius: 8px;transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 11 %}
-                  <img src='https://file.forms.app/sitefile/how-to-create-an-online-quiz-with-formsapp-cover.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% elif b.id == 12 %}
-                  <img src='https://www.shutterstock.com/image-vector/quiz-tag-neon-light-frame-260nw-2451429525.jpg' 
-                  alt="Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% else %}
-                  <!-- Default image if no specific URL is defined -->
-                  <img src="{{ portfolio.image }}" alt="Portfolio Image"
-                  alt="Default Testimonial Image"
-                  style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)';"
-                  onmouseout="this.style.transform='scale(1)';">
-              {% endif %} {% endcomment %}
           </a>
           </div>
         </div>

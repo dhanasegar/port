@@ -37,7 +37,9 @@
                   <div class="cardStyle1"style="position: relative; overflow: hidden; border-radius: 8px; transition: box-shadow 0.3s ease, transform 0.3s ease; cursor: pointer;"
                   onmouseover="this.style.boxShadow='0 8px 20px rgb(212, 0, 255)'; this.style.transform='scale(1.02)';"
                   onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
-                  <img src="{{ obj.image }}" alt="skill Image"style="border-radius: 8px;"class="logo" width="100%">
+                  <img src="{{ obj.image }}" alt="skill Image"style="width: 100%; height: auto;border-radius: 8px; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.1)';"
+                  onmouseout="this.style.transform='scale(1)';">
                   {% comment %} {% if obj.id == 1 %}
                       <img src="https://static.vecteezy.com/system/resources/thumbnails/044/280/984/small_2x/stack-of-books-on-a-brown-background-concept-for-world-book-day-photo.jpg"  alt="Testimonial Image" style="border-radius: 8px;"class="logo" width="100%">
                   {% elif obj.id == 2 %}
