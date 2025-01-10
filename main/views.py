@@ -89,9 +89,9 @@ class BlogDetailView(generic.DetailView):
 
 def download_resume(request, user_id):
 # def download_cv(request, user_id):
-    user_profile = get_object_or_404(UserProfile, id=user_id)
-    if user_profile.cv_binary:
-        response = HttpResponse(user_profile.cv_binary, content_type='application/pdf')
-        response['Content-Disposition'] = f'attachment; filename="{user_profile.user.first_name}_resume.pdf"'
+    userprofile = get_object_or_404(UserProfile, id=user_id)
+    if userprofile.cv_binary:
+        response = HttpResponse(userprofile.cv_binary, content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="{userprofile.user.first_name}_resume.pdf"'
         return response
     return HttpResponse("Resume not found.", status=404)
