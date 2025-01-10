@@ -150,6 +150,22 @@ class TestimonialAdmin(admin.ModelAdmin):
     thumbnail_preview.short_description = 'Thumbnail Preview'
 
 
+@admin.register(Certificate)
+class CertificateAdmin(admin.ModelAdmin):
+    list_display = ('id','name')
+
+
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ('id','name','score')
+    
+@admin.register(ContactProfile)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('id', 'timestamp', 'name',)
+    search_fields = ('name', 'email',)
+    list_filter = ('timestamp',)    
+
+
 # Registering the Admin Models
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Media, MediaAdmin)
