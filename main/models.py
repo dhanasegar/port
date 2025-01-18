@@ -188,7 +188,7 @@ class UserProfile(models.Model):
         verbose_name = 'User Profile'
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.URLField(max_length=500, blank=True, null=True)  # Increased max_length for flexibility
+    # avatar = models.URLField(max_length=500, blank=True, null=True)  # Increased max_length for flexibility
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)

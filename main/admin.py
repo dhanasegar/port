@@ -89,7 +89,7 @@ from django.contrib import admin
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'title', 'avatar_preview']  # Added avatar_preview
+    list_display = ['id', 'user', 'title', ] 
     search_fields = ['user__username', 'title']
 
     def avatar_preview(self, obj):
@@ -104,7 +104,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 # Customizing the Media Admin
 class MediaAdmin(admin.ModelAdmin):
-    list_display = ['name', 'image_preview', 'is_image']
+    list_display = ['name',  'is_image']
     search_fields = ['name', 'url']
 
     def image_preview(self, obj):
@@ -117,7 +117,7 @@ class MediaAdmin(admin.ModelAdmin):
 
 # Customizing the Portfolio Admin
 class PortfolioAdmin(admin.ModelAdmin):
-    list_display = ['name', 'image_preview', 'is_active']
+    list_display = ['name',  'is_active']
     search_fields = ['name', 'description']
 
     def image_preview(self, obj):
@@ -130,7 +130,7 @@ class PortfolioAdmin(admin.ModelAdmin):
 
 # Customizing the Blog Admin
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ['name', 'image_preview', 'is_active']
+    list_display = ['name', 'is_active']
     search_fields = ['name', 'description']
 
     def image_preview(self, obj):
@@ -143,7 +143,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 # Customizing the Testimonial Admin
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ['name', 'thumbnail_preview', 'is_active']
+    list_display = ['name', 'is_active']
     search_fields = ['name', 'quote']
 
     def thumbnail_preview(self, obj):
