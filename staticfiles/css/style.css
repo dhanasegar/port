@@ -194,3 +194,6 @@ p {
     font-size: 16px;
   }
 }
+.innerPageBannerCol {
+  padding: 150px 0 100px;
+}
