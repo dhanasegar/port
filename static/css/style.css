@@ -961,7 +961,7 @@ input[type=text], input[type=email], select, textarea {
 
 /* Header and Footer Styles */
 nav, footer {
-  background-color: #9C07B6;
+  background-color: #ffffff;
   color: white; /* Ensure text contrasts well */
   padding: 15px; /* Add padding for better spacing */
   text-align: center; /* Center-align text for symmetry */
