@@ -197,3 +197,28 @@ p {
 .innerPageBannerCol {
   padding: 150px 0 100px;
 }
+/* footer */
+.footerCol {
+  padding: 50px 0;
+  text-align: center;
+
+}
+.socialCol li {
+  display: inline-block;
+}
+.socialCol li + li {
+  padding-left: 35px;
+}
+.socialCol img {
+  max-width: 30px;
+  max-height: 30px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.copyrightCol {
+	padding: 20px 0 0;
+  font-size: 14px;
+}
+.copyrightCol p {
+	margin: 0;
+}
