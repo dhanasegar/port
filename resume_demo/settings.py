@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 LOGIN_REDIRECT_URL = "/" 
 
-LOGIN_URL = "/blog"
+LOGIN_URL = "/index"
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
