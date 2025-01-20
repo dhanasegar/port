@@ -19,10 +19,13 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# from main import views 
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('index/', views.IndexView.as_view(), name='index'), 
     path('',include('main.urls',namespace='main'))
 ]
 

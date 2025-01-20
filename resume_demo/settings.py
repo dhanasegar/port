@@ -18,7 +18,7 @@ LOGIN_URL = "/index"
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default_secret_key')
 # "SECRET_KEY",
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "TRUE").lower() == "TURE"
+DEBUG = os.environ.get("DEBUG", "TRUE").lower() == "true"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS",'*',).split(" ")
 
