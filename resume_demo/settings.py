@@ -126,8 +126,8 @@ LOGIN_REDIRECT_URL = '/'  # Redirect to home page after login
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY",'DJANGO_SECRET_KEY', 'default_secret_key')
-
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default_secret_key')
+# "SECRET_KEY",
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "TRUE").lower() == "FALSE"
 
