@@ -9,9 +9,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load environment variables from a .env file if needed
 load_dotenv()
-LOGIN_REDIRECT_URL = '/' 
+LOGIN_REDIRECT_URL = "main/blog.html" 
 
-LOGIN_URL = "main/index.html"
+# LOGIN_URL = "/blog"
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
