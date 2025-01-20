@@ -98,11 +98,9 @@ class UserProfileAdmin(admin.ModelAdmin):
         return "No Avatar"
     avatar_preview.short_description = 'Avatar Preview'
 
-# Register the model with the admin site
 
 
 
-# Customizing the Media Admin
 class MediaAdmin(admin.ModelAdmin):
     list_display = ['name',  'is_image']
     search_fields = ['name', 'url']
@@ -115,7 +113,7 @@ class MediaAdmin(admin.ModelAdmin):
     image_preview.short_description = 'Image Preview'
 
 
-# Customizing the Portfolio Admin
+
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = ['name',  'is_active']
     search_fields = ['name', 'description']
@@ -128,7 +126,6 @@ class PortfolioAdmin(admin.ModelAdmin):
     image_preview.short_description = 'Image Preview'
 
 
-# Customizing the Blog Admin
 class BlogAdmin(admin.ModelAdmin):
     list_display = ['name', 'is_active']
     search_fields = ['name', 'description']
@@ -141,7 +138,7 @@ class BlogAdmin(admin.ModelAdmin):
     image_preview.short_description = 'Image Preview'
 
 
-# Customizing the Testimonial Admin
+
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = ['name', 'is_active']
     search_fields = ['name', 'quote']
@@ -170,7 +167,6 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('timestamp',)    
 
 
-# Registering the Admin Models
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Media, MediaAdmin)
 admin.site.register(Portfolio, PortfolioAdmin)

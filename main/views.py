@@ -28,12 +28,12 @@ class IndexView(generic.TemplateView):
         context = super().get_context_data(**kwargs)
         userprofile = None
 
-        # Fetch the UserProfile instance if the user is logged in
+      
         if self.request.user.is_authenticated:
             try:
                 userprofile = UserProfile.objects.get(user=self.request.user)
             except UserProfile.DoesNotExist:
-                pass  # Handle the case where a UserProfile does not exist
+                pass 
 
         testimonials = Testimonial.objects.filter(is_active=True)
         certificates = Certificate.objects.filter(is_active=True)
@@ -42,7 +42,7 @@ class IndexView(generic.TemplateView):
 
      
 
-        context["userprofile"] = userprofile  # Add user profile to context
+        context["userprofile"] = userprofile 
         context["testimonials"] = testimonials
         context["certificates"] = certificates
         context["blogs"] = blogs
@@ -95,7 +95,6 @@ class BlogDetailView(generic.DetailView):
 
 
 def download_resume(request, user_id):
-# def download_cv(request, user_id):
     userprofile = get_object_or_404(UserProfile, id=user_id)
     if userprofile.cv_binary:
         response = HttpResponse(userprofile.cv_binary, content_type='application/pdf')
