@@ -11,6 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 LOGIN_REDIRECT_URL = '/' 
 
+LOGIN_URL = "main/index.html"
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default_secret_key')
