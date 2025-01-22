@@ -17,21 +17,32 @@ from .models import SocialMediaLink  # Assuming you have a model for social link
 from django.shortcuts import render
 from main.models import SocialMediaLink
 
+# def footer_view(request):
+#     # Fetch the first SocialMediaLink record
+#     social_media = SocialMediaLink.objects.get()
+
+#     # Print the entire social_media object
+#     print(social_media)
+
+#     # Print individual fields to see the values
+#     print("Facebook URL:", social_media.fb)
+#     print("Instagram URL:", social_media.ig)
+#     print("Twitter URL:", social_media.tw)
+#     print("LinkedIn URL:", social_media.li)
+
+#     # Render the template and pass the social_media data
+#     return render(request, 'main/partials/footer.html', {'social_media': social_media})
+
 def footer_view(request):
-    # Fetch the first SocialMediaLink record
-    social_media = SocialMediaLink.objects.get()
+    # Fetch the first social media link record from the database
+    social_media = SocialMediaLink.objects.first()
 
-    # Print the entire social_media object
-    print(social_media)
+    # Pass the data to the template using the context dictionary
+    context = {
+        'social_media': social_media
+    }
 
-    # Print individual fields to see the values
-    print("Facebook URL:", social_media.fb)
-    print("Instagram URL:", social_media.ig)
-    print("Twitter URL:", social_media.tw)
-    print("LinkedIn URL:", social_media.li)
-
-    # Render the template and pass the social_media data
-    return render(request, 'main/partials/footer.html', {'social_media': social_media})
+    return render(request, 'base.html', context)
 
 
 

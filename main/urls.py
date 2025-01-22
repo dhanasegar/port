@@ -13,7 +13,7 @@ urlpatterns = [
     path('blog/',views.BlogView.as_view(),name='blogs'),
     path('blog/<slug:slug>',views.BlogDetailView.as_view(),name='blog'),
     path('download/<int:user_id>/', views.download_resume, name='download_resume'),
-    path('footer/', footer_view, name='footer'),
+    path('', footer_view, name='footer'),
 
 ]
 

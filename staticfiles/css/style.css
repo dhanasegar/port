@@ -985,3 +985,33 @@ header a:hover, footer a:hover {
       font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
+
+
+/* Ensures the social media links are in a row */
+.social-links {
+  list-style: none; /* Removes default bullet points */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  display: flex; /* Use flexbox for horizontal layout */
+  justify-content: center; /* Centers the icons horizontally */
+  align-items: center; /* Aligns the icons vertically */
+  gap: 20px; /* Adds space between the icons */
+}
+
+/* Style the individual list items */
+.social-links li {
+  display: inline-block; /* Makes list items inline */
+}
+
+/* Style the social media icons */
+.social-links img {
+  width: 40px;  /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  transition: transform 0.3s ease; /* Adds hover effect */
+}
+
+/* Add a hover effect */
+.social-links img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}

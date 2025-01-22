@@ -58,7 +58,7 @@ class ContactProfile(models.Model):
 
 class Testimonial(models.Model):
     class Meta:
-        verbose_name_plural = 'Testimonials'
+        verbose_name_plural = 'Employment'
         verbose_name = 'Testimonial'
         ordering = ["id"]
 
@@ -94,7 +94,7 @@ class Media(models.Model):
 
 class Portfolio(models.Model):
     class Meta:
-        verbose_name_plural = 'Portfolio Profiles'
+        verbose_name_plural = 'Education'
         verbose_name = 'Portfolio'
         ordering = ["name"]
 
@@ -120,7 +120,7 @@ class Portfolio(models.Model):
 
 class Blog(models.Model):
     class Meta:
-        verbose_name_plural = 'Blog Profiles'
+        verbose_name_plural = 'Projects'
         verbose_name = 'Blog'
         ordering = ["timestamp"]
 
@@ -188,9 +188,8 @@ class Resume(models.Model):
     
 class SocialMediaLink(models.Model):
     name=models.TextField(default='-')
-    about=models.TextField(default='-')
     fb=models.TextField(default='-')
-    ig=models.URLField(default='-')
+    ig=models.TextField(default='-')
     tw=models.TextField(default='-') 
     li=models.TextField(default='-')
 

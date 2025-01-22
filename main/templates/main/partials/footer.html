@@ -12,62 +12,72 @@
             </div>
     </div>
     </footer> {% endcomment %}
-    {% load static%}
-    <footer>
-        <ul class="social-links">
-            <li>
-                {% if social_media.fb %}
-                    <a href="{{ social_media.fb|default:'#' }}" target="_blank" rel="noopener noreferrer">
-                        <img src="{% static 'images/fb.svg' %}" alt="Facebook">
-                    </a>
-                    <p>{{ social_media.fb }}</p> 
-                {% else %}
-                    <p>No Facebook link available</p>
-                {% endif %}
-            </li>
-            <li>
-                <a href="{{ social_media.ig|default:'#' }}" target="_blank" rel="noopener noreferrer">
-                    <img src="{% static 'images/insta.svg' %}" alt="Instagram">
-                </a>
-            </li>
-            <li>
-                <a href="{{ social_media.tw|default:'#' }}" target="_blank" rel="noopener noreferrer">
-                    <img src="{% static 'images/twitter.svg' %}" alt="Twitter">
-                </a>
-            </li>
-            <li>
-                <a href="{{ social_media.li|default:'#' }}" target="_blank" rel="noopener noreferrer">
-                    <img src="{% static 'images/linkedin.svg' %}" alt="LinkedIn">
-                </a>
-            </li>
-        </ul>
-    </footer>
-    
+
+    <style>
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;  /* Makes the list horizontal */
+            justify-content: center;  /* Centers the icons */
+            align-items: center;  /* Aligns them vertically */
+            gap: 20px;  /* Space between icons */
+        }
+        .social-links li {
+            display: inline-block;
+        }
+        .social-links a img {
+            width: 40px;  /* Adjust the icon size */
+            height: 40px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .social-links a img:hover {
+            transform: scale(1.1);  /* Slight zoom effect on hover */
+            opacity: 0.8;  /* Reduce opacity on hover */
+        }
+    </style>
+{%load static%}
+<footer>
+    <div class="footerCol">
+        <div class="container">
+            <ul class="social-links">
+                <li>
+                    {% if social_media.fb %}
+                        <a href="{{ social_media.fb }}" target="_blank">
+                            <img src="/static/images/fb.svg" alt="Facebook">
+                        </a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if social_media.ig %}
+                        <a href="{{ social_media.ig }}" target="_blank">
+                            <img src="/static/images/insta.svg" alt="Instagram">
+                        </a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if social_media.ig %}
+                        <a href="{{ social_media.tw }}" target="_blank">
+                            <img src="/static/images/twitter.svg" alt="Instagram">
+                        </a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if social_media.ig %}
+                        <a href="{{ social_media.li }}" target="_blank">
+                            <img src="/static/images/linkedIn.svg" alt="Instagram">
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>                                                                                                                                           
 
       
-{% comment %} <footer>
-    <ul class="social-links">
-        {% if social_media %}
-            {% if social_media.fb %}
-                <li><a href="{{ social_media.fb }}" target="_blank"><img src="/static/images/fb.svg" alt="Facebook"></a></li>
-            {% endif %}
-            {% if social_media.ig %}
-                <li><a href="{{ social_media.ig }}" target="_blank"><img src="/static/images/insta.svg" alt="Instagram"></a></li>
-            {% endif %}
-            {% if social_media.tw %}
-                <li><a href="{{ social_media.tw }}" target="_blank"><img src="/static/images/twitter.svg" alt="Twitter"></a></li>
-            {% endif %}
-            {% if social_media.li %}
-                <li><a href="{{ social_media.li }}" target="_blank"><img src="/static/images/linkedin.svg" alt="LinkedIn"></a></li>
-            {% endif %}
-        {% else %}
-            <p>No social media links available</p>
-        {% endif %}
-    </ul>
-    <p></p>
-</footer> {% endcomment %}
 
-<script>
+
+{% comment %} <script>
     console.log("Facebook URL:", "{{ social_media.fb }}");
     console.log("Instagram URL:", "{{ social_media.ig }}");
     console.log("Twitter URL:", "{{ social_media.tw }}");
@@ -79,4 +89,4 @@
             console.log('Clicked:', link.href);
         });
     });
-</script>
+</script> {% endcomment %}
