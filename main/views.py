@@ -6,39 +6,34 @@ from .models import (
     Portfolio,
     Testimonial,
     Certificate,
-)
+    SocialMediaLink)
 from django.views import generic
 from .forms import ContactForm
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-# from django.contrib.auth.decorators import login_required
-# from django.utils.decorators import method_decorator
-# from django.contrib.auth.mixins import LoginRequiredMixin  # Import for LoginRequiredMixin
+
+from .models import SocialMediaLink  # Assuming you have a model for social links
+
+from django.shortcuts import render
+from main.models import SocialMediaLink
+
+def footer_view(request):
+    # Fetch the first SocialMediaLink record
+    social_media = SocialMediaLink.objects.get()
+
+    # Print the entire social_media object
+    print(social_media)
+
+    # Print individual fields to see the values
+    print("Facebook URL:", social_media.fb)
+    print("Instagram URL:", social_media.ig)
+    print("Twitter URL:", social_media.tw)
+    print("LinkedIn URL:", social_media.li)
+
+    # Render the template and pass the social_media data
+    return render(request, 'main/partials/footer.html', {'social_media': social_media})
 
 
-# class IndexView(LoginRequiredMixin, generic.TemplateView):
-#     template_name = "main/index.html"
-
-#     # The LoginRequiredMixin automatically handles the login check
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         userprofile = None
-
-#         if self.request.user.is_authenticated:
-#             userprofile, created = UserProfile.objects.get_or_create(user=self.request.user)  # Automatically create if missing
-
-#         testimonials = Testimonial.objects.filter(is_active=True)
-#         certificates = Certificate.objects.filter(is_active=True)
-#         blogs = Blog.objects.filter(is_active=True)
-#         portfolio = Portfolio.objects.filter(is_active=True)
-
-#         context["userprofile"] = userprofile
-#         context["testimonials"] = testimonials
-#         context["certificates"] = certificates
-#         context["blogs"] = blogs
-#         context["portfolio"] = portfolio
-
-#         return context
 
 class IndexView(generic.TemplateView):
 	template_name = "main/index.html"
@@ -104,7 +99,7 @@ class BlogDetailView(generic.DetailView):
 def download_resume(request, user_id):
     userprofile = get_object_or_404(UserProfile, id=user_id)
     if userprofile.cv_binary:
-        # Ensure the file is a PDF before sending it as a response
+       
         response = HttpResponse(userprofile.cv_binary, content_type='application/pdf')
         response['Content-Disposition'] = f'attachment; filename="{userprofile.user.first_name}_resume.pdf"'
         return response

@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from .views import download_resume
+from .views import footer_view
 
 app_name='main'
 
@@ -12,5 +13,7 @@ urlpatterns = [
     path('blog/',views.BlogView.as_view(),name='blogs'),
     path('blog/<slug:slug>',views.BlogDetailView.as_view(),name='blog'),
     path('download/<int:user_id>/', views.download_resume, name='download_resume'),
+    path('footer/', footer_view, name='footer'),
 
 ]
+

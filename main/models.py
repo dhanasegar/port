@@ -165,3 +165,34 @@ class Resume(models.Model):
     file = models.BinaryField()
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
+
+# class SocialMediaLink(models.Model):
+#     class Meta:
+#         verbose_name_plural = 'Social Media Links'
+#         verbose_name = 'Social Media Link'
+
+#     PLATFORM_CHOICES = [
+#         ('facebook', 'Facebook'),
+#         ('instagram', 'Instagram'),
+#         ('twitter', 'Twitter'),
+#         ('linkedin', 'LinkedIn'),
+#     ]
+
+    
+#     platform = models.CharField(max_length=20, choices=PLATFORM_CHOICES, unique=True)
+#     url = models.URLField(max_length=500, blank=True, null=True)
+
+
+#     def __str__(self):
+#         return f"{self.get_platform_display()} - {self.url}"
+    
+class SocialMediaLink(models.Model):
+    name=models.TextField(default='-')
+    about=models.TextField(default='-')
+    fb=models.TextField(default='-')
+    ig=models.URLField(default='-')
+    tw=models.TextField(default='-') 
+    li=models.TextField(default='-')
+
+    def __str__(self):
+        return "Social Media Links"

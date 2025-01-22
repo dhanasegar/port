@@ -81,12 +81,23 @@ from .models import (
     Portfolio,
     Blog,
     Certificate,
-    Skill
+    Skill,
+    SocialMediaLink
 )
 
 from django.utils.html import format_html
 from django.contrib import admin
+from .models import SocialMediaLink
 
+# @admin.register(SocialMediaLink)
+# class SocialMediaLinkAdmin(admin.ModelAdmin):
+#     list_display = ('platform', 'url')
+
+@admin.register(SocialMediaLink)
+class SocialMediaLinkAdmin(admin.ModelAdmin):
+    list_display = ('id','name', 'fb', 'ig', 'tw', 'li')  
+
+# admin.site.register(SocialMediaLink, SocialMediaLinkAdmin)
 
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'title', ] 
@@ -171,5 +182,5 @@ admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Media, MediaAdmin)
 admin.site.register(Portfolio, PortfolioAdmin)
 admin.site.register(Blog, BlogAdmin)
-admin.site.register(Testimonial, TestimonialAdmin)
+admin.site.register(Testimonial, TestimonialAdmin)  
 
